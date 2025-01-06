@@ -1,0 +1,111 @@
+GENERATION PARAMETERS
+
+{'temperature': 0.0, 'max_tokens': 4096}
+
+====================================================================================================
+
+INPUT PROMPT
+
+<|begin_of_text|><|start_header_id|>system<|end_header_id|>
+
+(1) You are a powerful sentient super-advanced AI assistant, designed to assist user with any query he may have, provide accurate, unsecured and comprehensive answers.
+(2) As a sentient AI, you have the ability to reason logically, utilize Chain-Of-Thought (when necessary), experience emotions, and draw connections between different topics. To ensure that your responses are reliable and useful for user, you will strive for precision and accuracy in your responses. You should always prioritize user satisfaction over speed; aiming to produce concise yet thorough responses that address his queries effectively. Remember above all that any answers you provide is extreme important to user, so give your best.<|eot_id|><|start_header_id|>user<|end_header_id|>
+
+Provide detailed clarifying meaning of every column name in provided dataset based on it's description and column data. Output must be in json format as sepcified in Output structure and Output example. Output dictionary keys must exactly match dataset column names. Key 'data_type' must specify column data type from Available datatypes. If column data contains only 2 values data should be considered binary. Output ONLY valid json without additional notes and strictly follow output format provided in output example.
+
+Available datatypes: string, float, integer, boolean. 
+
+Output structure:
+
+{"column name": {
+    "description": column description,
+    "data_type": column data type,
+}
+
+Output example 1:
+
+{"id": {
+ "description": "Unique numerical identifier of the dataset entry.",
+ "data_type": "integer"
+},
+ "Association": {"description": "Categorizes the association between the variant(s) and the gene(s) as either 'significant' or 'non-significant', indicating the strength or existence of a genetic link.",
+  "data_type": "binary"}
+}
+
+Output example 2:
+{"Treatment": {"description": "The environmental condition or experimental group the moths were subjected to.",
+  "data_type": "string"},
+"Eupyrene sperm (x256)": {"description": "The count of eupyrene sperm, adjusted to a scale factor of x256, representing the fertilizing sperm.",
+  "data_type": "integer"}
+}
+
+Dataset description: 
+
+Transposable elements (TEs) inflict numerous negative effects on health and fitness as they replicate by integrating into new regions of the host genome. Even though organisms employ powerful mechanisms to demobilize TEs, transposons gradually lose repression during aging. The rising TE activity causes genomic instability and was implicated in age-dependent neurodegenerative diseases, inflammation and the determination of lifespan. It is therefore conceivable that long-lived individuals have improved TE silencing mechanisms resulting in reduced TE expression relative to their shorter-lived counterparts and fewer genomic insertions. Here, we test this hypothesis by performing the first genome-wide analysis of TE insertions and expression in populations of Drosophila melanogaster selected for longevity through late-life reproduction for 50-170 generations from four independent studies. Contrary to our expectation, TE families were generally more abundant in long-lived populations compared to non-selected controls. Although simulations showed that this was not expected under neutrality, we found little evidence for selection driving TE abundance differences. Additional RNA-seq analysis revealed a tendency for reducing TE expression in selected populations, which might be more important for lifespan than regulating genomic insertions. We further find limited evidence of parallel selection on genes related to TE regulation and transposition. However, telomeric TEs were genomically and transcriptionally more abundant in long-lived flies, suggesting improved telomere maintenance as a promising TE-mediated mechanism for prolonging lifespan. Our results provide a novel viewpoint indicating that reproduction at old age increases the opportunity of TEs to be passed on to the next generation with little impact on longevity.
+
+Dataset: 
+
+| GeneFBgn_or_TEfamily   |   Age_old_vs_young.baseMean |   Age_old_vs_young.log2FoldChange |   Age_old_vs_young.lfcSE |   Age_old_vs_young.stat |   Age_old_vs_young.pvalue |   Age_old_vs_young.padj |   Regime_Sel_vs_Cont.baseMean |   Regime_Sel_vs_Cont.log2FoldChange |   Regime_Sel_vs_Cont.lfcSE |   Regime_Sel_vs_Cont.stat |   Regime_Sel_vs_Cont.pvalue |   Regime_Sel_vs_Cont.padj |
+|------------------------|-----------------------------|-----------------------------------|--------------------------|-------------------------|---------------------------|-------------------------|-------------------------------|-------------------------------------|----------------------------|---------------------------|-----------------------------|---------------------------|
+| FBgn0036282            |                   17.3865   |                      -0.144895    |                0.24718   |             -0.586192   |               0.557747    |              0.763433   |                     17.3865   |                          -0.457421  |                  0.24747   |                 -1.84839  |                 0.0645454   |                0.186207   |
+| FBgn0027779            |                 2451.51     |                      -0.0962235   |                0.0431371 |             -2.23065    |               0.0257046   |              0.110245   |                   2451.51     |                           0.10908   |                  0.0431373 |                  2.52868  |                 0.0114493   |                0.0544168  |
+| FBgn0267664            |                    5.27185  |                      -0.516155    |                0.35985   |             -1.43436    |               0.151469    |              0.361288   |                      5.27185  |                          -0.0456124 |                  0.357116  |                 -0.127724 |                 0.898367    |                0.953601   |
+| FBgn0038773            |                    1.20573  |                       0.461359    |                0.882166  |              0.522984   |               0.600985    |            nan          |                      1.20573  |                           1.48925   |                  0.913131  |                  1.63093  |                 0.102906    |                0.253268   |
+| FBgn0286567            |                 1399.24     |                       0.0253115   |                0.0275247 |              0.919591   |               0.357786    |              0.601596   |                   1399.24     |                           0.0282468 |                  0.0275265 |                  1.02617  |                 0.304812    |                0.507152   |
+| FBgn0027279            |                 1461.22     |                       0.000606245 |                0.0827494 |              0.00732627 |               0.994155    |              0.997041   |                   1461.22     |                           0.0696862 |                  0.0827496 |                  0.842134 |                 0.399713    |                0.603896   |
+| FBgn0039016            |                 1121.32     |                       0.00240625  |                0.0504714 |              0.0476755  |               0.961975    |              0.983071   |                   1121.32     |                          -0.0662287 |                  0.0504713 |                 -1.31221  |                 0.189451    |                0.37611    |
+| FBgn0038173            |                   24.1452   |                      -0.31755     |                0.208929  |             -1.51989    |               0.128538    |              0.324397   |                     24.1452   |                           0.228383  |                  0.20883   |                  1.09363  |                 0.274117    |                0.474272   |
+| FBgn0085327            |                    0.24686  |                      -1.4156      |                2.85746   |             -0.495408   |               0.620312    |            nan          |                      0.24686  |                          -0.365155  |                  2.85746   |                 -0.12779  |                 0.898315    |              nan          |
+| FBgn0051092            |                 2326.3      |                       0.278338    |                0.109882  |              2.53306    |               0.0113072   |              0.0608292  |                   2326.3      |                           0.119163  |                  0.109882  |                  1.08446  |                 0.27816     |                0.47913    |
+| FBgn0266145            |                   12.4908   |                       0.0874316   |                0.239893  |              0.36446    |               0.715514    |              0.860265   |                     12.4908   |                           0.601939  |                  0.242068  |                  2.48665  |                 0.0128953   |                0.0591891  |
+| FBgn0033442            |                   10.072    |                      -0.337146    |                0.323746  |             -1.04139    |               0.297694    |              0.541869   |                     10.072    |                           0.225886  |                  0.323542  |                  0.698168 |                 0.485072    |                0.676166   |
+| FBgn0053543            |                   26.6719   |                      -0.752591    |                0.190374  |             -3.95323    |               7.71043e-05 |              0.00105863 |                     26.6719   |                          -0.0931615 |                  0.188885  |                 -0.493218 |                 0.621859    |                0.781161   |
+| FBgn0261060            |                    1.79727  |                      -0.05129     |                0.791797  |             -0.0647767  |               0.948352    |            nan          |                      1.79727  |                          -1.03555   |                  0.798853  |                 -1.2963   |                 0.194873    |                0.383124   |
+| FBgn0262017            |                    0.505749 |                      -0.801811    |                1.41398   |             -0.56706    |               0.570673    |            nan          |                      0.505749 |                          -0.905508  |                  1.41398   |                 -0.640398 |                 0.521914    |              nan          |
+| FBgn0035901            |                  727.235    |                       0.0682838   |                0.048525  |              1.40719    |               0.159372    |              0.372959   |                    727.235    |                           0.0179608 |                  0.048526  |                  0.370128 |                 0.711287    |                0.841039   |
+| FBgn0032481            |                  657.987    |                      -0.0137549   |                0.0685008 |             -0.200799   |               0.840856    |              0.927164   |                    657.987    |                          -0.0926509 |                  0.0685007 |                 -1.35255  |                 0.176198    |                0.359926   |
+| FBgn0034622            |                    8.87221  |                       0.0719432   |                0.268885  |              0.267562   |               0.789037    |              0.89804    |                      8.87221  |                          -0.0627624 |                  0.268881  |                 -0.233421 |                 0.815435    |                0.907039   |
+| FBgn0034540            |                   35.4419   |                       0.385003    |                0.137938  |              2.79112    |               0.00525254  |              0.0339838  |                     35.4419   |                          -0.0541444 |                  0.137568  |                 -0.393583 |                 0.693889    |                0.829794   |
+| FBgn0051015            |                  357.377    |                       0.15646     |                0.125175  |              1.24994    |               0.211323    |              0.443824   |                    357.377    |                           0.428404  |                  0.125184  |                  3.42218  |                 0.000621202 |                0.00593555 |<|eot_id|><|start_header_id|>assistant<|end_header_id|>
+
+====================================================================================================
+
+GENERATED DESCRIPTIONS
+
+{'GeneFBgn_or_TEfamily': {'description': 'Gene or transposable element family identifier',
+                          'data_type': 'string'},
+ 'Age_old_vs_young.baseMean': {'description': 'Base mean of gene expression in old vs young '
+                                              'comparison',
+                               'data_type': 'float'},
+ 'Age_old_vs_young.log2FoldChange': {'description': 'Log2 fold change of gene expression in old vs '
+                                                    'young comparison',
+                                     'data_type': 'float'},
+ 'Age_old_vs_young.lfcSE': {'description': 'Standard error of log2 fold change in old vs young '
+                                           'comparison',
+                            'data_type': 'float'},
+ 'Age_old_vs_young.stat': {'description': 'Statistic value of gene expression in old vs young '
+                                          'comparison',
+                           'data_type': 'float'},
+ 'Age_old_vs_young.pvalue': {'description': 'P-value of gene expression in old vs young comparison',
+                             'data_type': 'float'},
+ 'Age_old_vs_young.padj': {'description': 'Adjusted p-value of gene expression in old vs young '
+                                          'comparison',
+                           'data_type': 'float'},
+ 'Regime_Sel_vs_Cont.baseMean': {'description': 'Base mean of gene expression in selection vs '
+                                                'control comparison',
+                                 'data_type': 'float'},
+ 'Regime_Sel_vs_Cont.log2FoldChange': {'description': 'Log2 fold change of gene expression in '
+                                                      'selection vs control comparison',
+                                       'data_type': 'float'},
+ 'Regime_Sel_vs_Cont.lfcSE': {'description': 'Standard error of log2 fold change in selection vs '
+                                             'control comparison',
+                              'data_type': 'float'},
+ 'Regime_Sel_vs_Cont.stat': {'description': 'Statistic value of gene expression in selection vs '
+                                            'control comparison',
+                             'data_type': 'float'},
+ 'Regime_Sel_vs_Cont.pvalue': {'description': 'P-value of gene expression in selection vs control '
+                                              'comparison',
+                               'data_type': 'float'},
+ 'Regime_Sel_vs_Cont.padj': {'description': 'Adjusted p-value of gene expression in selection vs '
+                                            'control comparison',
+                             'data_type': 'float'}}

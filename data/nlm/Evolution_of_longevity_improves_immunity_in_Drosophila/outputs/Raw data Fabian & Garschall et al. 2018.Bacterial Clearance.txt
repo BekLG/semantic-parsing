@@ -1,0 +1,87 @@
+Dataset description: 
+
+Much has been learned about the genetics of aging from studies in model organisms, but still little is known about naturally occurring alleles that contribute to variation in longevity. For example, analysis of mutants and transgenes has identified insulin signaling as a major regulator of longevity, yet whether standing variation in this pathway underlies microevolutionary changes in lifespan and correlated fitness traits remains largely unclear. Here we have analyzed the genomes of a set of Drosophila melanogaster lines that have been maintained under direct selection for postponed reproduction and indirect selection for longevity, relative to unselected control lines, for over 35 years. We identified many candidate loci shaped by selection for longevity and late-life fertility, but – contrary to expectation – we did not find overrepresentation of canonical longevity genes. Instead, we found an enrichment of immunity genes, particularly in the Toll pathway, suggesting that evolutionary changes in immune function might underpin – in part – the evolution of late-life fertility and longevity. To test whether this genomic signature is causative, we performed functional experiments. In contrast to control flies, long-lived flies tended to downregulate the expression of antimicrobial peptides upon infection with age yet survived fungal, bacterial and viral infections significantly better, consistent with alleviated immunosenescence. To examine whether genes of the Toll pathway directly affect longevity, we employed conditional knockdown using in vivo RNAi. In adults, RNAi against the Toll receptor extended lifespan, whereas silencing the pathway antagonist cactus – causing immune hyperactivation – dramatically shortened lifespan. Together, our results suggest that genetic changes in the age-dependent regulation of immune homeostasis might contribute to the evolution of longer life.
+
+Dataset: 
+
+| Line   | Sex   | Regime   |   Days after infection |   Individual | Age   | Pathogen                    |   Bacterial Clearance = 1 |
+|--------|-------|----------|------------------------|--------------|-------|-----------------------------|---------------------------|
+| Lb     | f     | selected |                      1 |            7 | young | E. carotovora carotovora 15 |                         1 |
+| Rb     | f     | control  |                      6 |            5 | old   | E. carotovora carotovora 15 |                         0 |
+| Lb     | f     | selected |                      0 |            2 | young | E. carotovora carotovora 15 |                         0 |
+| Ra     | f     | control  |                      6 |            3 | old   | E. carotovora carotovora 15 |                         0 |
+| La     | f     | selected |                      5 |            9 | young | E. carotovora carotovora 15 |                         0 |
+| 2La    | f     | selected |                      0 |            1 | old   | E. carotovora carotovora 15 |                         0 |
+| 2Lb    | f     | selected |                      0 |            4 | young | E. carotovora carotovora 15 |                         0 |
+| Ra     | f     | control  |                      4 |            8 | young | E. carotovora carotovora 15 |                         0 |
+| 2La    | f     | selected |                      0 |            7 | old   | E. carotovora carotovora 15 |                         0 |
+| Ra     | f     | control  |                      5 |            6 | old   | E. carotovora carotovora 15 |                         1 |
+
+
+====================================================================================================
+
+Meta-Llama-3-70B-Instruct OUTPUT:
+
+{'Line': {'description': 'The identifier of the Drosophila melanogaster line.',
+          'data_type': 'string'},
+ 'Sex': {'description': 'The sex of the Drosophila melanogaster.', 'data_type': 'string'},
+ 'Regime': {'description': 'The type of selection regime the Drosophila melanogaster line was subjected to.',
+            'data_type': 'string'},
+ 'Days after infection': {'description': 'The number of days after infection with a pathogen.',
+                          'data_type': 'integer'},
+ 'Individual': {'description': 'The identifier of the individual Drosophila melanogaster.',
+                'data_type': 'integer'},
+ 'Age': {'description': 'The age category of the Drosophila melanogaster (young or old).',
+         'data_type': 'string'},
+ 'Pathogen': {'description': 'The type of pathogen used for infection.', 'data_type': 'string'},
+ 'Bacterial Clearance = 1': {'description': 'A binary indicator of whether the Drosophila melanogaster was able to clear the bacterial infection.',
+                             'data_type': 'binary'}}
+
+====================================================================================================
+
+OpenBioLLM-Llama3-70B OUTPUT:
+
+{'Line': {'description': 'The unique identifier for each experimental line.',
+          'data_type': 'string'},
+ 'Sex': {'description': 'The sex of the individual flies.', 'data_ type': 'binary'},
+ 'Regime': {'description': 'The experimental regime the flies were subjected to, either selected or control.',
+            'data_type': 'string'},
+ 'Days after infection': {'description': 'The number of days after infection.',
+                          'data_type': 'integer'},
+ 'Individual': {'description': 'A unique identifier for each individual fly.',
+                'data_type': 'integer'},
+ 'Age': {'description': 'The age category of the flies, either young or old.',
+         'data_type': 'binary'},
+ 'Pathogen': {'description': 'The specific pathogen the flies were exposed to.',
+              'data_type': 'string'},
+ 'Bacterial Clearance = 1': {'description': 'Indicates whether the fly cleared the bacterial infection (1) or not (0).',
+                             'data_type': 'binary'}}
+
+====================================================================================================
+
+GPT4 OUTPUT:
+
+{'Line': {'description': 'The specific Drosophila melanogaster line that the data pertains to.',
+          'data_type': 'string'},
+ 'Sex': {'description': 'The sex of the Drosophila melanogaster individual.',
+         'data_type': 'binary'},
+ 'Regime': {'description': 'The experimental group the Drosophila melanogaster individual belongs '
+                           "to, either 'selected' for postponed reproduction and indirect "
+                           "selection for longevity, or 'control'.",
+            'data_type': 'binary'},
+ 'Days after infection': {'description': 'The number of days that have passed since the Drosophila '
+                                         'melanogaster individual was infected with a pathogen.',
+                          'data_type': 'integer'},
+ 'Individual': {'description': 'The unique identifier of the Drosophila melanogaster individual '
+                               'within its line and regime.',
+                'data_type': 'integer'},
+ 'Age': {'description': 'The age category of the Drosophila melanogaster individual, either '
+                        "'young' or 'old'.",
+         'data_type': 'binary'},
+ 'Pathogen': {'description': 'The specific pathogen that the Drosophila melanogaster individual '
+                             'was infected with.',
+              'data_type': 'string'},
+ 'Bacterial Clearance = 1': {'description': 'Indicates whether the Drosophila melanogaster '
+                                            'individual was able to clear the bacterial infection '
+                                            '(1) or not (0).',
+                             'data_type': 'binary'}}

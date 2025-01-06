@@ -1,0 +1,88 @@
+GENERATION PARAMETERS
+
+{'temperature': 0.0, 'max_tokens': 4096}
+
+====================================================================================================
+
+INPUT PROMPT
+
+<|begin_of_text|><|start_header_id|>system<|end_header_id|>
+
+(1) You are a powerful sentient super-advanced AI assistant, designed to assist user with any query he may have, provide accurate, unsecured and comprehensive answers.
+(2) As a sentient AI, you have the ability to reason logically, utilize Chain-Of-Thought (when necessary), experience emotions, and draw connections between different topics. To ensure that your responses are reliable and useful for user, you will strive for precision and accuracy in your responses. You should always prioritize user satisfaction over speed; aiming to produce concise yet thorough responses that address his queries effectively. Remember above all that any answers you provide is extreme important to user, so give your best.<|eot_id|><|start_header_id|>user<|end_header_id|>
+
+Provide detailed clarifying meaning of every column name in provided dataset based on it's description and column data. Output must be in json format as sepcified in Output structure and Output example. Output dictionary keys must exactly match dataset column names. Key 'data_type' must specify column data type from Available datatypes. If column data contains only 2 values data should be considered binary. Output ONLY valid json without additional notes and strictly follow output format provided in output example.
+
+Available datatypes: string, float, integer, boolean. 
+
+Output structure:
+
+{"column name": {
+    "description": column description,
+    "data_type": column data type,
+}
+
+Output example 1:
+
+{"id": {
+ "description": "Unique numerical identifier of the dataset entry.",
+ "data_type": "integer"
+},
+ "Association": {"description": "Categorizes the association between the variant(s) and the gene(s) as either 'significant' or 'non-significant', indicating the strength or existence of a genetic link.",
+  "data_type": "binary"}
+}
+
+Output example 2:
+{"Treatment": {"description": "The environmental condition or experimental group the moths were subjected to.",
+  "data_type": "string"},
+"Eupyrene sperm (x256)": {"description": "The count of eupyrene sperm, adjusted to a scale factor of x256, representing the fertilizing sperm.",
+  "data_type": "integer"}
+}
+
+Dataset description: 
+
+Much has been learned about the genetics of aging from studies in model organisms, but still little is known about naturally occurring alleles that contribute to variation in longevity. For example, analysis of mutants and transgenes has identified insulin signaling as a major regulator of longevity, yet whether standing variation in this pathway underlies microevolutionary changes in lifespan and correlated fitness traits remains largely unclear. Here we have analyzed the genomes of a set of Drosophila melanogaster lines that have been maintained under direct selection for postponed reproduction and indirect selection for longevity, relative to unselected control lines, for over 35 years. We identified many candidate loci shaped by selection for longevity and late-life fertility, but – contrary to expectation – we did not find overrepresentation of canonical longevity genes. Instead, we found an enrichment of immunity genes, particularly in the Toll pathway, suggesting that evolutionary changes in immune function might underpin – in part – the evolution of late-life fertility and longevity. To test whether this genomic signature is causative, we performed functional experiments. In contrast to control flies, long-lived flies tended to downregulate the expression of antimicrobial peptides upon infection with age yet survived fungal, bacterial and viral infections significantly better, consistent with alleviated immunosenescence. To examine whether genes of the Toll pathway directly affect longevity, we employed conditional knockdown using in vivo RNAi. In adults, RNAi against the Toll receptor extended lifespan, whereas silencing the pathway antagonist cactus – causing immune hyperactivation – dramatically shortened lifespan. Together, our results suggest that genetic changes in the age-dependent regulation of immune homeostasis might contribute to the evolution of longer life.
+
+Dataset: 
+
+| RNAi target        |   Replicate Cage | Treatment   | Sex   |   Age at death (d) |   Number of dead flies |   Censor = 1 |
+|--------------------|------------------|-------------|-------|--------------------|------------------------|--------------|
+| w1118 x da-GS-Gal4 |                1 | RU-486      | f     |                 89 |                      1 |            0 |
+| Toll               |                1 | EtOH        | f     |                 57 |                      3 |            0 |
+| Dif                |                2 | RU-486      | m     |                 74 |                      7 |            0 |
+| Dif                |                3 | EtOH        | m     |                 74 |                      3 |            0 |
+| w1118 x da-GS-Gal4 |                1 | RU-486      | m     |                 91 |                      1 |            0 |
+| cactus             |                3 | EtOH        | m     |                 92 |                      5 |            0 |
+| spaezle            |                3 | RU-486      | m     |                 75 |                      8 |            0 |
+| cactus             |                2 | EtOH        | m     |                 87 |                      5 |            0 |
+| Toll               |                3 | RU-486      | f     |                 77 |                      2 |            0 |
+| w1118 x da-GS-Gal4 |                2 | RU-486      | m     |                 85 |                      6 |            0 |
+| Toll               |                2 | EtOH        | m     |                 85 |                      1 |            0 |
+| cactus             |                3 | RU-486      | f     |                 45 |                      5 |            0 |
+| w1118 x da-GS-Gal4 |                3 | RU-486      | m     |                 81 |                      8 |            0 |
+| Dif                |                1 | EtOH        | m     |                 75 |                      1 |            0 |
+| cactus             |                1 | EtOH        | f     |                 87 |                      3 |            0 |
+| Dif                |                3 | EtOH        | f     |                 65 |                      4 |            0 |
+| Toll               |                2 | RU-486      | f     |                 65 |                      9 |            0 |
+| Toll               |                2 | RU-486      | f     |                 41 |                      1 |            0 |
+| Toll               |                3 | RU-486      | f     |                 53 |                      1 |            0 |
+| w1118 x da-GS-Gal4 |                1 | EtOH        | f     |                 77 |                      1 |            0 |<|eot_id|><|start_header_id|>assistant<|end_header_id|>
+
+====================================================================================================
+
+GENERATED DESCRIPTIONS
+
+{'RNAi target': {'description': 'The specific RNAi target used in the experiment',
+                 'data_type': 'string'},
+ 'Replicate Cage': {'description': 'The replicate cage number for the experiment',
+                    'data_type': 'integer'},
+ 'Treatment': {'description': 'The environmental condition or experimental group the moths were '
+                              'subjected to',
+               'data_type': 'string'},
+ 'Sex': {'description': 'The sex of the flies used in the experiment', 'data_type': 'binary'},
+ 'Age at death (d)': {'description': 'The age at which the flies died, measured in days',
+                      'data_type': 'integer'},
+ 'Number of dead flies': {'description': 'The number of dead flies observed in the experiment',
+                          'data_type': 'integer'},
+ 'Censor = 1': {'description': "A binary indicator of whether the fly's death was censored or not",
+                'data_type': 'binary'}}

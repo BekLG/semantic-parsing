@@ -1,0 +1,95 @@
+Dataset: 
+
+| SampleID    |   Age | Sex    | Nationality   | DNA_extraction_method   |   ProjectID |   Diversity | BMI_group   |   SubjectID |   Time |
+|-------------|-------|--------|---------------|-------------------------|-------------|-------------|-------------|-------------|--------|
+| Sample-787  |    41 | female | Scandinavia   | p                       |          20 |        5.96 | lean        |         787 |    0   |
+| Sample-406  |    38 | female | SouthEurope   | o                       |          17 |        6.03 | lean        |         406 |    0   |
+| Sample-1122 |    34 | male   | Scandinavia   | r                       |          37 |        5.75 | overweight  |         218 |    2.4 |
+| Sample-995  |    43 | female | UKIE          | r                       |          28 |        5.58 | overweight  |         995 |    0   |
+| Sample-192  |    45 | female | CentralEurope | r                       |           7 |        5.97 | lean        |         192 |    0   |
+| Sample-847  |    50 | female | UKIE          | r                       |          24 |        6.17 | overweight  |         847 |    0   |
+| Sample-807  |    45 | male   | Scandinavia   | r                       |          21 |        6.17 | lean        |         807 |    0   |
+| Sample-120  |    56 | male   | CentralEurope | r                       |           7 |        6.07 | lean        |         120 |    0   |
+| Sample-358  |    52 | female | CentralEurope | o                       |          13 |        5.6  | overweight  |         358 |    0   |
+| Sample-950  |    33 | female | CentralEurope | nan                     |          28 |        5.3  | lean        |         950 |    0   |
+| Sample-327  |    51 | female | CentralEurope | r                       |          12 |        5.69 | overweight  |         327 |    0   |
+| Sample-562  |    39 | female | CentralEurope | o                       |          19 |        5.78 | obese       |         562 |    0   |
+| Sample-908  |    53 | male   | EasternEurope | nan                     |          27 |        5.72 | nan         |         908 |    0   |
+| Sample-736  |   nan | nan    | nan           | nan                     |          19 |        5.82 | nan         |         736 |    0   |
+| Sample-745  |    53 | male   | US            | nan                     |          19 |        5.75 | obese       |         745 |    0   |
+| Sample-590  |    61 | female | CentralEurope | o                       |          19 |        5.88 | lean        |         590 |    0   |
+| Sample-240  |    55 | female | Scandinavia   | r                       |           9 |        6.09 | severeobese |         240 |    0   |
+| Sample-1151 |    56 | female | Scandinavia   | r                       |          38 |        5.85 | overweight  |         235 |    2.3 |
+| Sample-850  |    20 | female | UKIE          | r                       |          24 |        6.05 | overweight  |         850 |    0   |
+| Sample-1089 |    50 | female | CentralEurope | o                       |          37 |        5.92 | obese       |         355 |    3.1 |
+
+====================================================================================================
+
+Meta-Llama-3-70B-Instruct OUTPUT:
+
+{'SampleID': {'description': 'Unique identifier for each sample', 'data_type': 'string'},
+ 'Age': {'description': 'Age of the subject', 'data_type': 'integer'},
+ 'Sex': {'description': 'Gender of the subject', 'data_type': 'string'},
+ 'Nationality': {'description': 'Nationality or region of the subject', 'data_type': 'string'},
+ 'DNA_extraction_method': {'description': 'Method used for DNA extraction', 'data_type': 'string'},
+ 'ProjectID': {'description': 'Unique identifier for each project', 'data_type': 'integer'},
+ 'Diversity': {'description': 'Measure of diversity in the intestinal microbiota',
+               'data_type': 'float'},
+ 'BMI_group': {'description': 'Body Mass Index (BMI) category of the subject',
+               'data_type': 'string'},
+ 'SubjectID': {'description': 'Unique identifier for each subject', 'data_type': 'integer'},
+ 'Time': {'description': 'Time point or visit number for the sample', 'data_type': 'integer'}}
+
+====================================================================================================
+
+OpenBioLLM-Llama3-70B OUTPUT:
+
+{'SampleID': {'description': 'Unique identifier for each sample in the dataset.',
+              'data_type': 'string'},
+ 'Age': {'description': 'The age of the subject at the time of sampling.', 'data_type': 'integer'},
+ 'Sex': {'description': 'The gender of the subject.', 'data_type': 'binary'},
+ 'Nationality': {'description': 'The nationality or region of origin of the subject.',
+                 'data_type': 'string'},
+ 'DNA_extraction_method': {'description': 'The method used to extract DNA from the sample.',
+                           'data_type': 'string'},
+ 'ProjectID': {'description': 'A unique identifier for the project associated with the sample.',
+               'data_type': 'integer'},
+ 'Diversity': {'description': 'A measure of microbial diversity in the sample.',
+               'data_type': 'float'},
+ 'BMI_group': {'description': 'The body mass index (BMI) category of the subject.',
+               'data_type': 'string'},
+ 'SubjectID': {'description': 'A unique identifier for each subject in the study.',
+               'data_type': 'integer'},
+ 'Time': {'description': 'The time point at which the sample was taken.', 'data_type': 'float'}}
+
+====================================================================================================
+
+GPT4 OUTPUT:
+
+{'SampleID': {'description': 'Unique identifier of the sample collected from an individual for the '
+                             'study.',
+              'data_type': 'string'},
+ 'Age': {'description': 'Age of the individual from whom the sample was collected.',
+         'data_type': 'integer'},
+ 'Sex': {'description': 'Biological sex of the individual from whom the sample was collected.',
+         'data_type': 'binary'},
+ 'Nationality': {'description': 'Nationality or geographic origin of the individual from whom the '
+                                'sample was collected.',
+                 'data_type': 'string'},
+ 'DNA_extraction_method': {'description': 'Method used to extract DNA from the collected sample.',
+                           'data_type': 'string'},
+ 'ProjectID': {'description': 'Unique identifier of the project under which the sample was '
+                              'collected and studied.',
+               'data_type': 'integer'},
+ 'Diversity': {'description': 'Measure of the diversity of microbial communities in the collected '
+                              'sample, likely based on a specific diversity index.',
+               'data_type': 'float'},
+ 'BMI_group': {'description': "Categorization of the individual's Body Mass Index (BMI) indicating "
+                              'their weight status (e.g., lean, overweight, obese).',
+               'data_type': 'string'},
+ 'SubjectID': {'description': 'Unique identifier of the individual from whom the sample was '
+                              'collected.',
+               'data_type': 'integer'},
+ 'Time': {'description': 'Time point at which the sample was collected, likely in relation to a '
+                         'specific event or the start of the study.',
+          'data_type': 'float'}}

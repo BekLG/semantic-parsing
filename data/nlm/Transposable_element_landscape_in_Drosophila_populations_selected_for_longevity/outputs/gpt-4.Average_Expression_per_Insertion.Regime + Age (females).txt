@@ -1,0 +1,107 @@
+GENERATION PARAMETERS
+
+{'temperature': 0.0, 'max_tokens': 4096}
+
+====================================================================================================
+
+INPUT PROMPT
+
+Provide detailed clarifying meaning of every column name in provided dataset based on it's description and column data. Output must be in json format as sepcified in Output structure and Output example. Output dictionary keys must exactly match dataset column names. Key 'data_type' must specify column data type from Available datatypes. If column data contains only 2 values data should be considered binary. Only output valid json and strictly follow output format provided in output example.
+
+Available datatypes: string, float, integer, boolean. 
+
+Output structure:
+
+{"column name": {
+    "description": column description,
+    "data_type": column data type,
+}
+
+Output example 1:
+
+{"id": {
+ "description": "Unique numerical identifier of the dataset entry.",
+ "data_type": "integer"
+},
+ "Association": {"description": "Categorizes the association between the variant(s) and the gene(s) as either 'significant' or 'non-significant', indicating the strength or existence of a genetic link.",
+  "data_type": "binary"}
+}
+
+Output example 2:
+{"Treatment": {"description": "The environmental condition or experimental group the moths were subjected to.",
+  "data_type": "string"},
+"Eupyrene sperm (x256)": {"description": "The count of eupyrene sperm, adjusted to a scale factor of x256, representing the fertilizing sperm.",
+  "data_type": "integer"}
+}
+
+Dataset description: 
+
+Transposable elements (TEs) inflict numerous negative effects on health and fitness as they replicate by integrating into new regions of the host genome. Even though organisms employ powerful mechanisms to demobilize TEs, transposons gradually lose repression during aging. The rising TE activity causes genomic instability and was implicated in age-dependent neurodegenerative diseases, inflammation and the determination of lifespan. It is therefore conceivable that long-lived individuals have improved TE silencing mechanisms resulting in reduced TE expression relative to their shorter-lived counterparts and fewer genomic insertions. Here, we test this hypothesis by performing the first genome-wide analysis of TE insertions and expression in populations of Drosophila melanogaster selected for longevity through late-life reproduction for 50-170 generations from four independent studies. Contrary to our expectation, TE families were generally more abundant in long-lived populations compared to non-selected controls. Although simulations showed that this was not expected under neutrality, we found little evidence for selection driving TE abundance differences. Additional RNA-seq analysis revealed a tendency for reducing TE expression in selected populations, which might be more important for lifespan than regulating genomic insertions. We further find limited evidence of parallel selection on genes related to TE regulation and transposition. However, telomeric TEs were genomically and transcriptionally more abundant in long-lived flies, suggesting improved telomere maintenance as a promising TE-mediated mechanism for prolonging lifespan. Our results provide a novel viewpoint indicating that reproduction at old age increases the opportunity of TEs to be passed on to the next generation with little impact on longevity.
+
+Dataset: 
+
+| GeneFBgn_or_TEfamily   |   Age_old_vs_young.baseMean |   Age_old_vs_young.log2FoldChange |   Age_old_vs_young.lfcSE |   Age_old_vs_young.stat |   Age_old_vs_young.pvalue |   Age_old_vs_young.padj |   Regime_Sel_vs_Cont.baseMean |   Regime_Sel_vs_Cont.log2FoldChange |   Regime_Sel_vs_Cont.lfcSE |   Regime_Sel_vs_Cont.stat |   Regime_Sel_vs_Cont.pvalue |   Regime_Sel_vs_Cont.padj |
+|------------------------|-----------------------------|-----------------------------------|--------------------------|-------------------------|---------------------------|-------------------------|-------------------------------|-------------------------------------|----------------------------|---------------------------|-----------------------------|---------------------------|
+| FBgn0266683            |                   0.0523803 |                       -0.24213    |                3.02619   |              -0.0800117 |               0.936228    |            nan          |                     0.0523803 |                         -0.345827   |                  3.02619   |                 -0.114278 |                 0.909017    |              nan          |
+| FBgn0032429            |                 300.479     |                        0.0842307  |                0.0486946 |               1.72978   |               0.0836704   |              0.245267   |                   300.479     |                         -0.00504565 |                  0.0486958 |                 -0.103616 |                 0.917474    |                0.963455   |
+| FBgn0040011            |                3836.12      |                        0.153107   |                0.0666794 |               2.29617   |               0.0216659   |              0.0973118  |                  3836.12      |                         -0.101993   |                  0.0666793 |                 -1.52961  |                 0.126113    |                0.290368   |
+| FBgn0003124            |                3969.83      |                        0.0609721  |                0.0540877 |               1.12728   |               0.259624    |              0.501524   |                  3969.83      |                         -0.0766498  |                  0.0540877 |                 -1.41714  |                 0.156442    |                0.334233   |
+| FBgn0002732            |                   6.55988   |                        0.119396   |                0.298602  |               0.399849  |               0.689267    |              0.843923   |                     6.55988   |                          0.475066   |                  0.301143  |                  1.57754  |                 0.114671    |                0.272221   |
+| FBgn0032554            |                   0.318643  |                       -0.545822   |                2.16675   |              -0.251908  |               0.801112    |            nan          |                     0.318643  |                         -1.22659    |                  2.16675   |                 -0.566098 |                 0.571327    |              nan          |
+| FBgn0037186            |                 198.483     |                       -0.0518602  |                0.112327  |              -0.46169   |               0.644304    |              0.817952   |                   198.483     |                          0.313486   |                  0.112352  |                  2.79022  |                 0.00526729  |                0.0302727  |
+| FBgn0035023            |                 179.332     |                        0.0476661  |                0.100756  |               0.473086  |               0.636152    |              0.815051   |                   179.332     |                         -0.0871636  |                  0.100756  |                 -0.865097 |                 0.386986    |                0.591012   |
+| FBgn0028892            |                   0.965189  |                       -0.975865   |                1.08665   |              -0.898053  |               0.369157    |            nan          |                     0.965189  |                         -2.11322    |                  1.10977   |                 -1.90419  |                 0.0568848   |                0.170919   |
+| FBgn0264815            |                 184.747     |                       -0.272273   |                0.11596   |              -2.34799   |               0.0188748   |              0.0880248  |                   184.747     |                         -0.198551   |                  0.115944  |                 -1.71248  |                 0.0868084   |                0.226326   |
+| FBgn0032131            |                 197.902     |                        0.0146082  |                0.210865  |               0.0692774 |               0.944769    |              0.97422    |                   197.902     |                          0.704007   |                  0.210883  |                  3.33838  |                 0.000842687 |                0.00747504 |
+| FBgn0040608            |                  16.598     |                       -1.12968    |                0.271693  |              -4.15791   |               3.21167e-05 |              0.00050897 |                    16.598     |                         -0.364011   |                  0.26863   |                 -1.35507  |                 0.175397    |                0.358963   |
+| FBgn0036118            |                 103.082     |                        0.0443765  |                0.083046  |               0.534361  |               0.593092    |              0.78786    |                   103.082     |                          0.0788406  |                  0.0830772 |                  0.949004 |                 0.342618    |                0.546967   |
+| FBgn0029993            |                   4.72861   |                       -0.185289   |                0.381615  |              -0.48554   |               0.627293    |              0.809177   |                     4.72861   |                         -0.706732   |                  0.384952  |                 -1.8359   |                 0.0663726   |                0.189798   |
+| FBgn0014366            |                 680.546     |                       -0.0208991  |                0.0374548 |              -0.557982  |               0.576856    |              0.777194   |                   680.546     |                          0.0235487  |                  0.0374558 |                  0.628708 |                 0.52954     |                0.715095   |
+| FBgn0024293            |                 908.462     |                        0.29416    |                0.153027  |               1.92227   |               0.0545712   |              0.183514   |                   908.462     |                          0.215463   |                  0.153027  |                  1.408    |                 0.15913     |                0.338617   |
+| FBgn0015037            |                 274.762     |                        0.491121   |                0.258123  |               1.90266   |               0.057085    |              0.188558   |                   274.762     |                          0.31667    |                  0.258123  |                  1.22682  |                 0.219891    |                0.413696   |
+| FBgn0039282            |                  42.1845    |                       -0.514898   |                0.150189  |              -3.42833   |               0.000607311 |              0.00600813 |                    42.1845    |                         -0.397546   |                  0.149821  |                 -2.65348  |                 0.00796669  |                0.0412954  |
+| FBgn0053229            |                1012.75      |                       -0.00645256 |                0.0569437 |              -0.113315  |               0.909781    |              0.956194   |                  1012.75      |                         -0.0921204  |                  0.0569437 |                 -1.61775  |                 0.105717    |                0.258474   |
+| FBgn0264943            |                   0.0523803 |                       -0.24213    |                3.02619   |              -0.0800117 |               0.936228    |            nan          |                     0.0523803 |                         -0.345827   |                  3.02619   |                 -0.114278 |                 0.909017    |              nan          |
+====================================================================================================
+
+GENERATED DESCRIPTIONS
+
+{'GeneFBgn_or_TEfamily': {'description': 'Unique identifier for the gene or transposable element '
+                                         '(TE) family.',
+                          'data_type': 'string'},
+ 'Age_old_vs_young.baseMean': {'description': 'The mean base value when comparing old versus young '
+                                              'age groups.',
+                               'data_type': 'float'},
+ 'Age_old_vs_young.log2FoldChange': {'description': 'The log2 fold change when comparing old '
+                                                    'versus young age groups.',
+                                     'data_type': 'float'},
+ 'Age_old_vs_young.lfcSE': {'description': 'The standard error of the log2 fold change when '
+                                           'comparing old versus young age groups.',
+                            'data_type': 'float'},
+ 'Age_old_vs_young.stat': {'description': 'The statistical value when comparing old versus young '
+                                          'age groups.',
+                           'data_type': 'float'},
+ 'Age_old_vs_young.pvalue': {'description': 'The p-value when comparing old versus young age '
+                                            'groups.',
+                             'data_type': 'float'},
+ 'Age_old_vs_young.padj': {'description': 'The adjusted p-value when comparing old versus young '
+                                          'age groups.',
+                           'data_type': 'float'},
+ 'Regime_Sel_vs_Cont.baseMean': {'description': 'The mean base value when comparing selected '
+                                                'regime versus control.',
+                                 'data_type': 'float'},
+ 'Regime_Sel_vs_Cont.log2FoldChange': {'description': 'The log2 fold change when comparing '
+                                                      'selected regime versus control.',
+                                       'data_type': 'float'},
+ 'Regime_Sel_vs_Cont.lfcSE': {'description': 'The standard error of the log2 fold change when '
+                                             'comparing selected regime versus control.',
+                              'data_type': 'float'},
+ 'Regime_Sel_vs_Cont.stat': {'description': 'The statistical value when comparing selected regime '
+                                            'versus control.',
+                             'data_type': 'float'},
+ 'Regime_Sel_vs_Cont.pvalue': {'description': 'The p-value when comparing selected regime versus '
+                                              'control.',
+                               'data_type': 'float'},
+ 'Regime_Sel_vs_Cont.padj': {'description': 'The adjusted p-value when comparing selected regime '
+                                            'versus control.',
+                             'data_type': 'float'}}

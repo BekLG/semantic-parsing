@@ -1,0 +1,95 @@
+GENERATION PARAMETERS
+
+{'temperature': 0.0, 'max_tokens': 4096}
+
+====================================================================================================
+
+INPUT PROMPT
+
+Provide detailed clarifying meaning of every column name in provided dataset based on it's description and column data. Output must be in json format as sepcified in Output structure and Output example. Output dictionary keys must exactly match dataset column names. Key 'data_type' must specify column data type from Available datatypes. If column data contains only 2 values data should be considered binary. Only output valid json and strictly follow output format provided in output example.
+
+Available datatypes: string, float, integer, boolean. 
+
+Output structure:
+
+{"column name": {
+    "description": column description,
+    "data_type": column data type,
+}
+
+Output example 1:
+
+{"id": {
+ "description": "Unique numerical identifier of the dataset entry.",
+ "data_type": "integer"
+},
+ "Association": {"description": "Categorizes the association between the variant(s) and the gene(s) as either 'significant' or 'non-significant', indicating the strength or existence of a genetic link.",
+  "data_type": "binary"}
+}
+
+Output example 2:
+{"Treatment": {"description": "The environmental condition or experimental group the moths were subjected to.",
+  "data_type": "string"},
+"Eupyrene sperm (x256)": {"description": "The count of eupyrene sperm, adjusted to a scale factor of x256, representing the fertilizing sperm.",
+  "data_type": "integer"}
+}
+
+Dataset description: 
+
+Primary human cells cultured in 3D organoid format have great promise as potential regenerative cellular therapies, but their immunogenicity has not yet been fully characterized. In this study, we use in vitro co-cultures and in vivo humanized mouse experimental models to examine the human immune response to autologous and allogeneic primary cholangiocyte organoids (PCOs). Our data demonstrate that PCOs upregulate the expression of HLA-I and HLA-II in inflammatory conditions. The immune response to allogeneic PCOs is driven by both HLA-I and HLA-II and is substantially ameliorated by donor-recipient HLA matching. Autologous PCOs induce a low-level immune infiltration into the graft site, while allogeneic cells display evolving stages of immune rejection in vivo. Our findings have important implications for the design and clinical translation of autologous and allogeneic organoid cellular therapies.
+
+Dataset: 
+
+| TargetName   | HUGOSymbol                                                         | TargetGroup   | AnalyteType   | CodeClass   |   ProbePool |   MinCount |   MaxCount |   MedianCount |   GeomeanCount |   NumberOfProbesIncluded |   NumberOfProbesTotal |    GeneID |
+|--------------|--------------------------------------------------------------------|---------------|---------------|-------------|-------------|------------|------------|---------------|----------------|--------------------------|-----------------------|-----------|
+| TOR1B        | TOR1B                                                              | All Targets   | RNA           | Endogenous  |           1 |          1 |         57 |            13 |       10.8398  |                        1 |                     1 |     27348 |
+| DEGS2        | DEGS2                                                              | All Targets   | RNA           | Endogenous  |           1 |          2 |        111 |            25 |       22.3816  |                        1 |                     1 |    123099 |
+| NXF5         | NXF5                                                               | All Targets   | RNA           | Endogenous  |           1 |          1 |         23 |             4 |        3.86575 |                        1 |                     1 |     55998 |
+| OR10R2       | OR10R2                                                             | All Targets   | RNA           | Endogenous  |           1 |          1 |         24 |             4 |        4.11744 |                        1 |                     1 |    343406 |
+| NBPF26       | NBPF9,NBPF8,NBPF26,NBPF20,NBPF25P,NBPF1,NBPF12,LOC102724250,NBPF19 | All Targets   | RNA           | Endogenous  |           1 |          1 |         77 |            19 |       16.3538  |                        1 |                     1 | 101060684 |
+| OR5H15       | OR5H15,OR5H14,OR5H6,OR5H1,OR5H2                                    | All Targets   | RNA           | Endogenous  |           1 |          2 |        114 |            25 |       21.9382  |                        1 |                     1 |    403274 |
+| BABAM1       | BABAM1                                                             | All Targets   | RNA           | Endogenous  |           1 |          1 |         68 |            15 |       12.6089  |                        1 |                     1 |     29086 |
+| KDM3A        | KDM3A                                                              | All Targets   | RNA           | Endogenous  |           1 |          1 |         34 |             9 |        7.01368 |                        1 |                     1 |     55818 |
+| GMPPB        | GMPPB                                                              | All Targets   | RNA           | Endogenous  |           1 |          1 |         56 |            11 |       10.5406  |                        1 |                     1 |     29925 |
+| P3H3         | P3H3                                                               | All Targets   | RNA           | Endogenous  |           1 |          1 |         20 |             6 |        4.89038 |                        1 |                     1 |     10536 |
+| MECOM        | MECOM                                                              | All Targets   | RNA           | Endogenous  |           1 |          1 |         26 |             5 |        4.52191 |                        1 |                     1 |      2122 |
+| NRG1         | NRG1                                                               | All Targets   | RNA           | Endogenous  |           1 |          1 |         39 |             9 |        7.36624 |                        1 |                     1 |      3084 |
+| SMO          | SMO                                                                | All Targets   | RNA           | Endogenous  |           1 |          1 |         44 |             8 |        7.53816 |                        1 |                     1 |      6608 |
+| XAB2         | XAB2                                                               | All Targets   | RNA           | Endogenous  |           1 |          1 |         68 |            15 |       12.4312  |                        1 |                     1 |     56949 |
+| SCNN1D       | SCNN1D                                                             | All Targets   | RNA           | Endogenous  |           1 |          1 |         29 |             7 |        5.0809  |                        1 |                     1 |      6339 |
+| PLCL1        | PLCL1                                                              | All Targets   | RNA           | Endogenous  |           1 |          1 |         44 |             7 |        6.60265 |                        1 |                     1 |      5334 |
+| KCNJ9        | KCNJ9                                                              | All Targets   | RNA           | Endogenous  |           1 |          2 |        116 |            31 |       27.5776  |                        1 |                     1 |      3765 |
+| XIRP2        | XIRP2                                                              | All Targets   | RNA           | Endogenous  |           1 |          1 |         25 |             5 |        4.16768 |                        1 |                     1 |    129446 |
+| PAPPA2       | PAPPA2                                                             | All Targets   | RNA           | Endogenous  |           1 |          1 |         30 |             4 |        4.43473 |                        1 |                     1 |     60676 |
+| PLEKHD1      | PLEKHD1                                                            | All Targets   | RNA           | Endogenous  |           1 |          1 |         45 |            11 |        8.49297 |                        1 |                     1 |    400224 |
+====================================================================================================
+
+GENERATED DESCRIPTIONS
+
+{'TargetName': {'description': 'The name of the target gene being studied.', 'data_type': 'string'},
+ 'HUGOSymbol': {'description': 'The official symbol of the gene as designated by the Human Genome '
+                               'Organisation (HUGO).',
+                'data_type': 'string'},
+ 'TargetGroup': {'description': 'The group to which the target gene belongs.',
+                 'data_type': 'string'},
+ 'AnalyteType': {'description': 'The type of analyte being studied, in this case, RNA.',
+                 'data_type': 'string'},
+ 'CodeClass': {'description': 'The classification of the code used in the study, in this case, '
+                              "'Endogenous'.",
+               'data_type': 'string'},
+ 'ProbePool': {'description': 'The pool number of the probe used in the study.',
+               'data_type': 'integer'},
+ 'MinCount': {'description': 'The minimum count of the target gene expression.',
+              'data_type': 'integer'},
+ 'MaxCount': {'description': 'The maximum count of the target gene expression.',
+              'data_type': 'integer'},
+ 'MedianCount': {'description': 'The median count of the target gene expression.',
+                 'data_type': 'integer'},
+ 'GeomeanCount': {'description': 'The geometric mean count of the target gene expression.',
+                  'data_type': 'float'},
+ 'NumberOfProbesIncluded': {'description': 'The number of probes included in the study for the '
+                                           'target gene.',
+                            'data_type': 'integer'},
+ 'NumberOfProbesTotal': {'description': 'The total number of probes used in the study.',
+                         'data_type': 'integer'},
+ 'GeneID': {'description': 'The unique identifier of the gene.', 'data_type': 'integer'}}

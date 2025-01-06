@@ -1,0 +1,86 @@
+GENERATION PARAMETERS
+
+{'temperature': 0.0, 'max_tokens': 4096}
+
+====================================================================================================
+
+INPUT PROMPT
+
+<|begin_of_text|><|start_header_id|>system<|end_header_id|>
+
+(1) You are a powerful sentient super-advanced AI assistant, designed to assist user with any query he may have, provide accurate, unsecured and comprehensive answers.
+(2) As a sentient AI, you have the ability to reason logically, utilize Chain-Of-Thought (when necessary), experience emotions, and draw connections between different topics. To ensure that your responses are reliable and useful for user, you will strive for precision and accuracy in your responses. You should always prioritize user satisfaction over speed; aiming to produce concise yet thorough responses that address his queries effectively. Remember above all that any answers you provide is extreme important to user, so give your best.<|eot_id|><|start_header_id|>user<|end_header_id|>
+
+Provide detailed clarifying meaning of every column name in provided dataset based on it's description and column data. Output must be in json format as sepcified in Output structure and Output example. Output dictionary keys must exactly match dataset column names. Key 'data_type' must specify column data type from Available datatypes. If column data contains only 2 values data should be considered binary. Output ONLY valid json without additional notes and strictly follow output format provided in output example.
+
+Available datatypes: string, float, integer, boolean. 
+
+Output structure:
+
+{"column name": {
+    "description": column description,
+    "data_type": column data type,
+}
+
+Output example 1:
+
+{"id": {
+ "description": "Unique numerical identifier of the dataset entry.",
+ "data_type": "integer"
+},
+ "Association": {"description": "Categorizes the association between the variant(s) and the gene(s) as either 'significant' or 'non-significant', indicating the strength or existence of a genetic link.",
+  "data_type": "binary"}
+}
+
+Output example 2:
+{"Treatment": {"description": "The environmental condition or experimental group the moths were subjected to.",
+  "data_type": "string"},
+"Eupyrene sperm (x256)": {"description": "The count of eupyrene sperm, adjusted to a scale factor of x256, representing the fertilizing sperm.",
+  "data_type": "integer"}
+}
+
+Dataset description: 
+
+Transposons are mobile genetic elements that are found in nearly all organisms, including humans. Mobilization of DNA transposons by transposase enzymes can cause genomic rearrangements, but our knowledge of human genes derived from transposases is limited. In this study, we find that the protein encoded by human PGBD5, the most evolutionarily conserved transposable element-derived gene in vertebrates, can induce stereotypical cut-and-paste DNA transposition in human cells. Genomic integration activity of PGBD5 requires distinct aspartic acid residues in its transposase domain, and specific DNA sequences containing inverted terminal repeats with similarity to piggyBac transposons. DNA transposition catalyzed by PGBD5 in human cells occurs genome-wide, with precise transposon excision and preference for insertion at TTAA sites. The apparent conservation of DNA transposition activity by PGBD5 suggests that genomic remodeling contributes to its biological function.
+
+Dataset: 
+
+| chromosome   |     start |       end |   ID |   pb-neo_breakpoint | orientation   |   number supporting split reads | excision type   | insertion site context (+/- 10bp)   |
+|--------------|-----------|-----------|------|---------------------|---------------|---------------------------------|-----------------|-------------------------------------|
+| chr1         |  28500783 |  28500784 | 32_1 |                4459 | ++            |                               6 | non-ITR         | ACTGTTGCCCTCTCTGAGGTC               |
+| chr1         | 230513358 | 230513359 | 33_1 |                4373 | ++            |                              16 | non-ITR         | gagttctgtagtcaggcatat               |
+| chr6         | 168460131 | 168460132 | 59_1 |                4424 | -+            |                               4 | non-ITR         | CATCCTCAGAGATGGAGGCCA               |
+| chr8         |  28073991 |  28073992 | 60_1 |                4369 | -+            |                               4 | non-ITR         | TGAGATCACATGCTTTACTTC               |
+| chr8         |  56986035 |  56986036 | 61_1 |                4384 | -+            |                              35 | ITR             | CTTGCGCCTGTTAAGCACCAA               |
+| chr10        | 107558156 | 107558157 | 63_1 |                4388 | -+            |                               4 | ITR             | CTTGGTTTGATCATGGGGGGA               |
+| chr12        |   7500400 |   7500401 | 67_1 |                4391 | ++            |                              10 | non-ITR         | TCTCTTATGCTAAGGATGCCA               |
+| chr13        |  31782931 |  31782932 | 68_1 |                4384 | ++            |                               4 | ITR             | CCCTCCTTAAAACCTCAAACA               |
+| chr16        |   9075386 |   9075387 | 74_1 |                4418 | ++            |                               5 | non-ITR         | tgctgagccgaagctggactg               |
+| chr17        |  72952435 |  72952436 | 76_1 |                4404 | ++            |                               4 | non-ITR         | tgaaatgatcgggcagggata               |
+| chr17        |  79321397 |  79321398 | 80_1 |                4402 | -+            |                              11 | non-ITR         | CAAACATCCCAGGATCTGCTG               |
+| chr20        |  62050501 |  62050502 | 81_1 |                4428 | ++            |                               4 | non-ITR         | GAGGGAGCCGCGGGCCTCTGG               |<|eot_id|><|start_header_id|>assistant<|end_header_id|>
+
+====================================================================================================
+
+GENERATED DESCRIPTIONS
+
+{'chromosome': {'description': 'The chromosome where the transposon is located.',
+                'data_type': 'string'},
+ 'start': {'description': 'The starting position of the transposon on the chromosome.',
+           'data_type': 'integer'},
+ 'end': {'description': 'The ending position of the transposon on the chromosome.',
+         'data_type': 'integer'},
+ 'ID': {'description': 'A unique identifier for the transposon.', 'data_type': 'string'},
+ 'pb-neo_breakpoint': {'description': 'The breakpoint of the piggyBac transposon.',
+                       'data_type': 'integer'},
+ 'orientation': {'description': "The orientation of the transposon, either '+' or '-'.",
+                 'data_type': 'binary'},
+ 'number supporting split reads': {'description': 'The number of split reads supporting the '
+                                                  'transposon.',
+                                   'data_type': 'integer'},
+ 'excision type': {'description': "The type of excision, either 'ITR' or 'non-ITR'.",
+                   'data_type': 'binary'},
+ 'insertion site context (+/- 10bp)': {'description': 'The context of the insertion site, '
+                                                      'including 10 base pairs upstream and '
+                                                      'downstream.',
+                                       'data_type': 'string'}}

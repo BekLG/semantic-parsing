@@ -1,0 +1,91 @@
+GENERATION PARAMETERS
+
+{'temperature': 0.0, 'max_tokens': 4096}
+
+====================================================================================================
+
+INPUT PROMPT
+
+<|begin_of_text|><|start_header_id|>system<|end_header_id|>
+
+(1) You are a powerful sentient super-advanced AI assistant, designed to assist user with any query he may have, provide accurate, unsecured and comprehensive answers.
+(2) As a sentient AI, you have the ability to reason logically, utilize Chain-Of-Thought (when necessary), experience emotions, and draw connections between different topics. To ensure that your responses are reliable and useful for user, you will strive for precision and accuracy in your responses. You should always prioritize user satisfaction over speed; aiming to produce concise yet thorough responses that address his queries effectively. Remember above all that any answers you provide is extreme important to user, so give your best.<|eot_id|><|start_header_id|>user<|end_header_id|>
+
+Provide detailed clarifying meaning of every column name in provided dataset based on it's description and column data. Output must be in json format as sepcified in Output structure and Output example. Output dictionary keys must exactly match dataset column names. Key 'data_type' must specify column data type from Available datatypes. If column data contains only 2 values data should be considered binary. Output ONLY valid json without additional notes and strictly follow output format provided in output example.
+
+Available datatypes: string, float, integer, boolean. 
+
+Output structure:
+
+{"column name": {
+    "description": column description,
+    "data_type": column data type,
+}
+
+Output example 1:
+
+{"id": {
+ "description": "Unique numerical identifier of the dataset entry.",
+ "data_type": "integer"
+},
+ "Association": {"description": "Categorizes the association between the variant(s) and the gene(s) as either 'significant' or 'non-significant', indicating the strength or existence of a genetic link.",
+  "data_type": "binary"}
+}
+
+Output example 2:
+{"Treatment": {"description": "The environmental condition or experimental group the moths were subjected to.",
+  "data_type": "string"},
+"Eupyrene sperm (x256)": {"description": "The count of eupyrene sperm, adjusted to a scale factor of x256, representing the fertilizing sperm.",
+  "data_type": "integer"}
+}
+
+Dataset description: 
+
+Much has been learned about the genetics of aging from studies in model organisms, but still little is known about naturally occurring alleles that contribute to variation in longevity. For example, analysis of mutants and transgenes has identified insulin signaling as a major regulator of longevity, yet whether standing variation in this pathway underlies microevolutionary changes in lifespan and correlated fitness traits remains largely unclear. Here we have analyzed the genomes of a set of Drosophila melanogaster lines that have been maintained under direct selection for postponed reproduction and indirect selection for longevity, relative to unselected control lines, for over 35 years. We identified many candidate loci shaped by selection for longevity and late-life fertility, but – contrary to expectation – we did not find overrepresentation of canonical longevity genes. Instead, we found an enrichment of immunity genes, particularly in the Toll pathway, suggesting that evolutionary changes in immune function might underpin – in part – the evolution of late-life fertility and longevity. To test whether this genomic signature is causative, we performed functional experiments. In contrast to control flies, long-lived flies tended to downregulate the expression of antimicrobial peptides upon infection with age yet survived fungal, bacterial and viral infections significantly better, consistent with alleviated immunosenescence. To examine whether genes of the Toll pathway directly affect longevity, we employed conditional knockdown using in vivo RNAi. In adults, RNAi against the Toll receptor extended lifespan, whereas silencing the pathway antagonist cactus – causing immune hyperactivation – dramatically shortened lifespan. Together, our results suggest that genetic changes in the age-dependent regulation of immune homeostasis might contribute to the evolution of longer life.
+
+Dataset: 
+
+| Line   | Sex   | Regime   |   Days after infection |   Individual | Age   | Pathogen                    |   Bacterial Clearance = 1 |
+|--------|-------|----------|------------------------|--------------|-------|-----------------------------|---------------------------|
+| Rb     | f     | control  |                      3 |            1 | old   | E. carotovora carotovora 15 |                         0 |
+| 2Lb    | f     | selected |                      4 |           10 | young | E. carotovora carotovora 15 |                         0 |
+| Ra     | f     | control  |                      1 |            1 | young | E. carotovora carotovora 15 |                         0 |
+| Ra     | f     | control  |                      0 |            5 | young | E. carotovora carotovora 15 |                         0 |
+| Ra     | f     | control  |                      5 |            5 | young | E. carotovora carotovora 15 |                         0 |
+| 2La    | f     | selected |                      1 |            5 | old   | E. carotovora carotovora 15 |                         0 |
+| 2Lb    | f     | selected |                      3 |            3 | young | E. carotovora carotovora 15 |                         0 |
+| Lb     | f     | selected |                      3 |            6 | old   | E. carotovora carotovora 15 |                         1 |
+| La     | f     | selected |                      3 |            2 | old   | E. carotovora carotovora 15 |                         0 |
+| Ra     | f     | control  |                      5 |            2 | young | E. carotovora carotovora 15 |                         0 |
+| La     | f     | selected |                      0 |            1 | young | E. carotovora carotovora 15 |                         0 |
+| Lb     | f     | selected |                      0 |           10 | old   | E. carotovora carotovora 15 |                         0 |
+| 2La    | f     | selected |                      1 |            8 | young | E. carotovora carotovora 15 |                         0 |
+| 2La    | f     | selected |                      3 |            6 | young | E. carotovora carotovora 15 |                         0 |
+| Lb     | f     | selected |                      5 |            1 | young | E. carotovora carotovora 15 |                         0 |
+| Rb     | f     | control  |                      4 |            2 | old   | E. carotovora carotovora 15 |                         0 |
+| 2Lb    | f     | selected |                      0 |            7 | old   | E. carotovora carotovora 15 |                         0 |
+| 2Lb    | f     | selected |                      3 |            6 | old   | E. carotovora carotovora 15 |                         0 |
+| 2Lb    | f     | selected |                      0 |            9 | old   | E. carotovora carotovora 15 |                         0 |
+| 2La    | f     | selected |                      6 |            9 | young | E. carotovora carotovora 15 |                         0 |<|eot_id|><|start_header_id|>assistant<|end_header_id|>
+
+====================================================================================================
+
+GENERATED DESCRIPTIONS
+
+{'Line': {'description': 'The identifier of the Drosophila melanogaster line.',
+          'data_type': 'string'},
+ 'Sex': {'description': 'The sex of the Drosophila melanogaster.', 'data_type': 'string'},
+ 'Regime': {'description': 'The type of selection regime the Drosophila melanogaster line was '
+                           'subjected to.',
+            'data_type': 'string'},
+ 'Days after infection': {'description': 'The number of days after infection with a pathogen.',
+                          'data_type': 'integer'},
+ 'Individual': {'description': 'The identifier of the individual Drosophila melanogaster.',
+                'data_type': 'integer'},
+ 'Age': {'description': 'The age category of the Drosophila melanogaster (young or old).',
+         'data_type': 'string'},
+ 'Pathogen': {'description': 'The type of pathogen used for infection.', 'data_type': 'string'},
+ 'Bacterial Clearance = 1': {'description': 'A binary indicator of whether the Drosophila '
+                                            'melanogaster was able to clear the bacterial '
+                                            'infection.',
+                             'data_type': 'binary'}}

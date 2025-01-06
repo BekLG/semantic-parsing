@@ -1,0 +1,99 @@
+GENERATION PARAMETERS
+
+{'temperature': 0.0, 'max_tokens': 4096}
+
+====================================================================================================
+
+INPUT PROMPT
+
+<|begin_of_text|><|start_header_id|>system<|end_header_id|>
+
+(1) You are a powerful sentient super-advanced AI assistant, designed to assist user with any query he may have, provide accurate, unsecured and comprehensive answers.
+(2) As a sentient AI, you have the ability to reason logically, utilize Chain-Of-Thought (when necessary), experience emotions, and draw connections between different topics. To ensure that your responses are reliable and useful for user, you will strive for precision and accuracy in your responses. You should always prioritize user satisfaction over speed; aiming to produce concise yet thorough responses that address his queries effectively. Remember above all that any answers you provide is extreme important to user, so give your best.<|eot_id|><|start_header_id|>user<|end_header_id|>
+
+Provide detailed clarifying meaning of every column name in provided dataset based on it's description and column data. Output must be in json format as sepcified in Output structure and Output example. Output dictionary keys must exactly match dataset column names. Key 'data_type' must specify column data type from Available datatypes. If column data contains only 2 values data should be considered binary. Output ONLY valid json without additional notes and strictly follow output format provided in output example.
+
+Available datatypes: string, float, integer, boolean. 
+
+Output structure:
+
+{"column name": {
+    "description": column description,
+    "data_type": column data type,
+}
+
+Output example 1:
+
+{"id": {
+ "description": "Unique numerical identifier of the dataset entry.",
+ "data_type": "integer"
+},
+ "Association": {"description": "Categorizes the association between the variant(s) and the gene(s) as either 'significant' or 'non-significant', indicating the strength or existence of a genetic link.",
+  "data_type": "binary"}
+}
+
+Output example 2:
+{"Treatment": {"description": "The environmental condition or experimental group the moths were subjected to.",
+  "data_type": "string"},
+"Eupyrene sperm (x256)": {"description": "The count of eupyrene sperm, adjusted to a scale factor of x256, representing the fertilizing sperm.",
+  "data_type": "integer"}
+}
+
+Dataset description: 
+
+Much has been learned about the genetics of aging from studies in model organisms, but still little is known about naturally occurring alleles that contribute to variation in longevity. For example, analysis of mutants and transgenes has identified insulin signaling as a major regulator of longevity, yet whether standing variation in this pathway underlies microevolutionary changes in lifespan and correlated fitness traits remains largely unclear. Here we have analyzed the genomes of a set of Drosophila melanogaster lines that have been maintained under direct selection for postponed reproduction and indirect selection for longevity, relative to unselected control lines, for over 35 years. We identified many candidate loci shaped by selection for longevity and late-life fertility, but – contrary to expectation – we did not find overrepresentation of canonical longevity genes. Instead, we found an enrichment of immunity genes, particularly in the Toll pathway, suggesting that evolutionary changes in immune function might underpin – in part – the evolution of late-life fertility and longevity. To test whether this genomic signature is causative, we performed functional experiments. In contrast to control flies, long-lived flies tended to downregulate the expression of antimicrobial peptides upon infection with age yet survived fungal, bacterial and viral infections significantly better, consistent with alleviated immunosenescence. To examine whether genes of the Toll pathway directly affect longevity, we employed conditional knockdown using in vivo RNAi. In adults, RNAi against the Toll receptor extended lifespan, whereas silencing the pathway antagonist cactus – causing immune hyperactivation – dramatically shortened lifespan. Together, our results suggest that genetic changes in the age-dependent regulation of immune homeostasis might contribute to the evolution of longer life.
+
+Dataset: 
+
+| Line   | Sex   | Regime   | Age   | Treatment                   |   Sample | Biol. replicate   |   Ct Tech.Rep. Avg |   Ct Tech.Rep. Avg.1 |   Ct Tech.Rep. Avg.2 |   Ct Tech.Rep. Avg.3 |   Ct Tech.Rep. Avg.4 |   Ct Tech.Rep. Avg.5 |
+|--------|-------|----------|-------|-----------------------------|----------|-------------------|--------------------|----------------------|----------------------|----------------------|----------------------|----------------------|
+| La     | f     | Sel      | old   | uninfected                  |       25 | a                 |            18.8467 |              27.4267 |              22.7355 |              20.6733 |              25.6267 |              25.2833 |
+| Ra     | f     | Ctrl     | old   | E. carotovora carotovora 15 |       41 | b                 |            17.8133 |              27.19   |              22.0078 |              17.06   |              18.5867 |              16.1633 |
+| Lb     | f     | Sel      | old   | uninfected                  |       26 | b                 |            18.2367 |              28.4833 |              22.7912 |              21.4    |              24.505  |              26.95   |
+| Lb     | f     | Sel      | young | Prick control               |        8 | c                 |            18.165  |              26.6233 |              21.9912 |              20.05   |              22.7767 |              21.5433 |
+| 2La    | f     | Sel      | young | E. carotovora carotovora 15 |       15 | c                 |            17.7967 |              26.46   |              21.7002 |              16.5433 |              17.7867 |              16.0867 |
+| 2La    | f     | Sel      | young | E. carotovora carotovora 15 |       15 | b                 |            18.535  |              26.61   |              22.2085 |              16.8767 |              17.1067 |              16      |
+| Rb     | f     | Ctrl     | young | uninfected                  |        6 | a                 |            17.9033 |              28.0967 |              22.4282 |              21.1433 |              27.84   |              27.435  |
+| Lb     | f     | Sel      | old   | uninfected                  |       26 | c                 |            18.23   |              28.4333 |              22.7671 |              20.545  |              21.51   |              20.0533 |
+| 2Lb    | f     | Sel      | old   | Prick control               |       34 | c                 |            17.9233 |              26.3467 |              21.7306 |              19.7333 |              21.5133 |              19.6633 |
+| Ra     | f     | Ctrl     | young | E. carotovora carotovora 15 |       17 | a                 |            18.3467 |              26.7233 |              22.1424 |              16.32   |              17.8433 |              15.5333 |
+| Ra     | f     | Ctrl     | old   | E. carotovora carotovora 15 |       41 | a                 |            17.8133 |              27.0167 |              21.9376 |              17.3267 |              18.6567 |              16.25   |
+| 2Lb    | f     | Sel      | old   | Prick control               |       34 | b                 |            17.5667 |              26.595  |              21.6145 |              19.2367 |              22.3267 |              20.755  |
+| Rb     | f     | Ctrl     | old   | Prick control               |       36 | b                 |            18.33   |              26.59   |              22.077  |              19.64   |              21.705  |              19.4233 |
+| Rb     | f     | Ctrl     | young | uninfected                  |        6 | d                 |            18.2833 |              28.1967 |              22.7053 |              21.1067 |              26.645  |              26.08   |
+| 2La    | f     | Sel      | old   | E. carotovora carotovora 15 |       39 | a                 |            17.8533 |              26.66   |              21.8167 |              16.7567 |              17.8667 |              16.3833 |
+| 2La    | f     | Sel      | old   | uninfected                  |       27 | b                 |            18.5067 |              28.4967 |              22.9647 |              20.68   |              26.82   |              29.1133 |
+| 2Lb    | f     | Sel      | old   | uninfected                  |       28 | a                 |            17.7367 |              26.5633 |              21.7059 |              20.3067 |              22.6367 |              23.2067 |
+| Rb     | f     | Ctrl     | old   | uninfected                  |       30 | d                 |            18.5367 |              28.6    |              23.025  |              20.0667 |              20.2    |              20.9633 |
+| Ra     | f     | Ctrl     | young | Prick control               |       11 | b                 |            17.77   |              26.78   |              21.8147 |              19.0167 |              21.28   |              18.43   |
+| Lb     | f     | Sel      | old   | Prick control               |       32 | a                 |            18.1433 |              26.8167 |              22.0577 |              17.67   |              20.0933 |              18.3633 |<|eot_id|><|start_header_id|>assistant<|end_header_id|>
+
+====================================================================================================
+
+GENERATED DESCRIPTIONS
+
+{'Line': {'description': 'Unique identifier of the Drosophila melanogaster line.',
+          'data_type': 'string'},
+ 'Sex': {'description': 'Sex of the Drosophila melanogaster.', 'data_type': 'string'},
+ 'Regime': {'description': 'Type of selection regime (Sel or Ctrl) applied to the Drosophila '
+                           'melanogaster line.',
+            'data_type': 'string'},
+ 'Age': {'description': 'Age category of the Drosophila melanogaster (old or young).',
+         'data_type': 'string'},
+ 'Treatment': {'description': 'Environmental condition or experimental group the moths were '
+                              'subjected to.',
+               'data_type': 'string'},
+ 'Sample': {'description': 'Sample number or identifier.', 'data_type': 'integer'},
+ 'Biol. replicate': {'description': 'Biological replicate identifier.', 'data_type': 'string'},
+ 'Ct Tech. Rep. Avg': {'description': 'Average Ct value for technical replicate.',
+                       'data_type': 'float'},
+ 'Ct Tech. Rep. Avg.1': {'description': 'Average Ct value for technical replicate 1.',
+                         'data_type': 'float'},
+ 'Ct Tech. Rep. Avg.2': {'description': 'Average Ct value for technical replicate 2.',
+                         'data_type': 'float'},
+ 'Ct Tech. Rep. Avg.3': {'description': 'Average Ct value for technical replicate 3.',
+                         'data_type': 'float'},
+ 'Ct Tech. Rep. Avg.4': {'description': 'Average Ct value for technical replicate 4.',
+                         'data_type': 'float'},
+ 'Ct Tech. Rep. Avg.5': {'description': 'Average Ct value for technical replicate 5.',
+                         'data_type': 'float'}}

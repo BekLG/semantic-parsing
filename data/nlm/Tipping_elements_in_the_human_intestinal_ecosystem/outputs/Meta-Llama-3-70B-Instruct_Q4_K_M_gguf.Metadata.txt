@@ -1,0 +1,76 @@
+GENERATION PARAMETERS
+
+{'temperature': 0.0, 'max_tokens': 4096}
+
+====================================================================================================
+
+INPUT PROMPT
+
+<|begin_of_text|><|start_header_id|>system<|end_header_id|>
+
+(1) You are a powerful sentient super-advanced AI assistant, designed to assist user with any query he may have, provide accurate, unsecured and comprehensive answers.
+(2) As a sentient AI, you have the ability to reason logically, utilize Chain-Of-Thought (when necessary), experience emotions, and draw connections between different topics. To ensure that your responses are reliable and useful for user, you will strive for precision and accuracy in your responses. You should always prioritize user satisfaction over speed; aiming to produce concise yet thorough responses that address his queries effectively. Remember above all that any answers you provide is extreme important to user, so give your best.<|eot_id|><|start_header_id|>user<|end_header_id|>
+
+Provide detailed clarifying meaning of every column name in provided dataset based on it's description and column data. Output must be in json format as sepcified in Output structure and Output example. Output dictionary keys must exactly match dataset column names. Key 'data_type' must specify column data type from Available datatypes. If column data contains only 2 values data should be considered binary. Output ONLY valid json without additional notes and strictly follow output format provided in output example.
+
+Available datatypes: string, float, integer, boolean. 
+
+Output structure:
+
+{"column name": {
+    "description": column description,
+    "data_type": column data type,
+}
+
+Output example 1:
+
+{"id": {
+ "description": "Unique numerical identifier of the dataset entry.",
+ "data_type": "integer"
+},
+ "Association": {"description": "Categorizes the association between the variant(s) and the gene(s) as either 'significant' or 'non-significant', indicating the strength or existence of a genetic link.",
+  "data_type": "binary"}
+}
+
+Output example 2:
+{"Treatment": {"description": "The environmental condition or experimental group the moths were subjected to.",
+  "data_type": "string"},
+"Eupyrene sperm (x256)": {"description": "The count of eupyrene sperm, adjusted to a scale factor of x256, representing the fertilizing sperm.",
+  "data_type": "integer"}
+}
+
+Dataset description: 
+
+The microbial communities living in the human intestine can have profound impact on our well-being and health. However, we have limited understanding of the mechanisms that control this complex ecosystem. Here, based on a deep phylogenetic analysis of the intestinal microbiota in a thousand western adults, we identify groups of bacteria that exhibit robust bistable abundance distributions. These bacteria are either abundant or nearly absent in most individuals, and exhibit decreased temporal stability at the intermediate abundance range. The abundances of these bimodally distributed bacteria vary independently, and their abundance distributions are not affected by short-term dietary interventions. However, their contrasting alternative states are associated with host factors such as ageing and overweight. We propose that the bistable groups reflect tipping elements of the intestinal microbiota, whose critical transitions may have profound health implications and diagnostic potential.
+
+Dataset: 
+
+| SampleID    |   Age | Sex    | Nationality   | DNA_extraction_method   |   ProjectID |   Diversity | BMI_group   |   SubjectID |   Time |
+|-------------|-------|--------|---------------|-------------------------|-------------|-------------|-------------|-------------|--------|
+| Sample-141  |    31 | female | CentralEurope | r                       |           7 |        5.88 | lean        |         141 |      0 |
+| Sample-958  |    30 | female | CentralEurope | nan                     |          28 |        5.67 | lean        |         958 |      0 |
+| Sample-798  |    47 | male   | Scandinavia   | p                       |          20 |        5.86 | overweight  |         798 |      0 |
+| Sample-339  |    20 | female | CentralEurope | r                       |          13 |        6.09 | lean        |         339 |      0 |
+| Sample-728  |   nan | nan    | nan           | nan                     |          19 |        5.92 | nan         |         728 |      0 |
+| Sample-536  |    64 | female | CentralEurope | o                       |          19 |        5.63 | obese       |         536 |      0 |
+| Sample-489  |    44 | female | CentralEurope | o                       |          19 |        5.83 | obese       |         489 |      0 |
+| Sample-156  |    29 | female | CentralEurope | r                       |           7 |        5.88 | lean        |         156 |      0 |
+| Sample-869  |    26 | female | CentralEurope | r                       |          26 |        5.99 | lean        |         869 |      0 |
+| Sample-1108 |    45 | female | CentralEurope | o                       |          37 |        5.56 | severeobese |         375 |      3 |<|eot_id|><|start_header_id|>assistant<|end_header_id|>
+
+====================================================================================================
+
+GENERATED DESCRIPTIONS
+
+{'SampleID': {'description': 'Unique identifier for each sample', 'data_type': 'string'},
+ 'Age': {'description': 'Age of the subject', 'data_type': 'integer'},
+ 'Sex': {'description': 'Gender of the subject', 'data_type': 'string'},
+ 'Nationality': {'description': 'Nationality or region of the subject', 'data_type': 'string'},
+ 'DNA_extraction_method': {'description': 'Method used for DNA extraction', 'data_type': 'string'},
+ 'ProjectID': {'description': 'Unique identifier for each project', 'data_type': 'integer'},
+ 'Diversity': {'description': 'Measure of diversity in the intestinal microbiota',
+               'data_type': 'float'},
+ 'BMI_group': {'description': 'Body Mass Index (BMI) category of the subject',
+               'data_type': 'string'},
+ 'SubjectID': {'description': 'Unique identifier for each subject', 'data_type': 'integer'},
+ 'Time': {'description': 'Time point or visit number for the sample', 'data_type': 'integer'}}

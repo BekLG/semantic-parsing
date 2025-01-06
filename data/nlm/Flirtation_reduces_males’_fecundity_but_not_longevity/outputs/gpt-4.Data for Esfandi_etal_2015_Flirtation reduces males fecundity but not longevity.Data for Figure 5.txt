@@ -1,0 +1,85 @@
+GENERATION PARAMETERS
+
+{'temperature': 0.0, 'max_tokens': 4096}
+
+====================================================================================================
+
+INPUT PROMPT
+
+Provide detailed clarifying meaning of every column name in provided dataset based on it's description and column data. Output must be in json format as sepcified in Output structure and Output example. Output dictionary keys must exactly match dataset column names. Key 'data_type' must specify column data type from Available datatypes. If column data contains only 2 values data should be considered binary. Only output valid json and strictly follow output format provided in output example.
+
+Available datatypes: string, float, integer, boolean. 
+
+Output structure:
+
+{"column name": {
+    "description": column description,
+    "data_type": column data type,
+}
+
+Output example 1:
+
+{"id": {
+ "description": "Unique numerical identifier of the dataset entry.",
+ "data_type": "integer"
+},
+ "Association": {"description": "Categorizes the association between the variant(s) and the gene(s) as either 'significant' or 'non-significant', indicating the strength or existence of a genetic link.",
+  "data_type": "binary"}
+}
+
+Output example 2:
+{"Treatment": {"description": "The environmental condition or experimental group the moths were subjected to.",
+  "data_type": "string"},
+"Eupyrene sperm (x256)": {"description": "The count of eupyrene sperm, adjusted to a scale factor of x256, representing the fertilizing sperm.",
+  "data_type": "integer"}
+}
+
+Dataset description: 
+
+Theory predicts that due to limited resources males should strategically adjust their investment in reproduction and survival. Based on different conceptual framework, experimental designs and study species, many studies support while others contradict this general prediction. Using a moth Ephestia kuehniella whose adults do not feed and thus have fixed resources for their lifetime fitness, we investigated whether males adjusted their investment in various life activities under dynamic socio-sexual environment. We allowed focal males to perceive rivals or additional females without physical contact. We show that males do not adjust the number of sperm they transfer to mates in a given copulation at different immediate or both immediate and mean sperm competition levels. Contradictory to general predictions, our results demonstrate that cues from additional females increase males’ investment in courtship and reduce their lifetime number of copulations and sperm ejaculated, whereas cues from rivals have no effect on these parameters. Males have similar longevity in all treatments. We suggest that the sex pheromone produced by multiple females over-stimulate males, increasing males’ costly flirtations and reducing their lifetime copulation frequency and fecundity. This finding offers a novel explanation for the success of mating disruption strategy using sex pheromones in pest management.
+
+Dataset: 
+
+| Treatment    |   Replicate |   Wing fanning duration (sec) |   Mating latency (h) |
+|--------------|-------------|-------------------------------|----------------------|
+| Plus females |          10 |                        152.68 |              7.78    |
+| Plus males   |          10 |                         11.15 |              4.52    |
+| Control      |          10 |                         13.22 |             10.45    |
+| Plus males   |           9 |                         69.47 |              9.06    |
+| Plus females |          12 |                        253.06 |              8.57    |
+| Control      |           4 |                         81.21 |              9.13    |
+| Plus females |           3 |                        382.96 |              9.41667 |
+| Plus males   |           6 |                         42.4  |              2.16    |
+| Control      |           3 |                         32.73 |              8.4     |
+| Control      |           2 |                         20.46 |              2.23    |
+| Plus females |           2 |                        254.58 |              8.21667 |
+| Plus males   |           5 |                         18.3  |              6       |
+| Plus males   |           4 |                         31.71 |              6.1     |
+| Plus males   |           7 |                         91.42 |              9.16    |
+| Control      |          11 |                         12.84 |              8.83    |
+| Plus males   |           2 |                         11.41 |              6.98333 |
+| Control      |           9 |                          8.5  |              9.99    |
+| Plus males   |           8 |                         73.51 |              9.25    |
+| Plus females |           5 |                        204.44 |              7       |
+| Plus females |           7 |                        330.77 |              7.5     |
+====================================================================================================
+
+GENERATED DESCRIPTIONS
+
+{'Treatment': {'description': 'The environmental condition or experimental group the moths were '
+                              "subjected to. This includes 'Plus females', 'Plus males', and "
+                              "'Control' groups.",
+               'data_type': 'string'},
+ 'Replicate': {'description': 'The numerical identifier of the experimental replicate. This '
+                              'indicates the number of times the experiment was repeated under the '
+                              'same conditions.',
+               'data_type': 'integer'},
+ 'Wing fanning duration (sec)': {'description': 'The duration of wing fanning behavior of the male '
+                                                'moths in seconds. Wing fanning is a courtship '
+                                                'behavior in moths where the male waves its wings '
+                                                'to disperse pheromones.',
+                                 'data_type': 'float'},
+ 'Mating latency (h)': {'description': 'The time in hours it takes for the moths to mate after the '
+                                       'start of the experiment. This is a measure of the time it '
+                                       'takes for mating to occur.',
+                        'data_type': 'float'}}

@@ -1,0 +1,93 @@
+Dataset description: 
+
+Transposons are mobile genetic elements that are found in nearly all organisms, including humans. Mobilization of DNA transposons by transposase enzymes can cause genomic rearrangements, but our knowledge of human genes derived from transposases is limited. In this study, we find that the protein encoded by human PGBD5, the most evolutionarily conserved transposable element-derived gene in vertebrates, can induce stereotypical cut-and-paste DNA transposition in human cells. Genomic integration activity of PGBD5 requires distinct aspartic acid residues in its transposase domain, and specific DNA sequences containing inverted terminal repeats with similarity to piggyBac transposons. DNA transposition catalyzed by PGBD5 in human cells occurs genome-wide, with precise transposon excision and preference for insertion at TTAA sites. The apparent conservation of DNA transposition activity by PGBD5 suggests that genomic remodeling contributes to its biological function.
+
+Dataset: 
+
+| chromosome   |     start |       end |   ID |   pb-neo_breakpoint | orientation   |   number supporting split reads | excision type   | insertion site context (+/- 10bp)   |
+|--------------|-----------|-----------|------|---------------------|---------------|---------------------------------|-----------------|-------------------------------------|
+| chr8         |  56986035 |  56986036 | 61_1 |                4384 | -+            |                              35 | ITR             | CTTGCGCCTGTTAAGCACCAA               |
+| chr10        | 107558156 | 107558157 | 63_1 |                4388 | -+            |                               4 | ITR             | CTTGGTTTGATCATGGGGGGA               |
+| chr8         |  28073991 |  28073992 | 60_1 |                4369 | -+            |                               4 | non-ITR         | TGAGATCACATGCTTTACTTC               |
+| chr16        |   9075386 |   9075387 | 74_1 |                4418 | ++            |                               5 | non-ITR         | tgctgagccgaagctggactg               |
+| chr1         | 230513358 | 230513359 | 33_1 |                4373 | ++            |                              16 | non-ITR         | gagttctgtagtcaggcatat               |
+| chr12        |   7500400 |   7500401 | 67_1 |                4391 | ++            |                              10 | non-ITR         | TCTCTTATGCTAAGGATGCCA               |
+| chr17        |  79321397 |  79321398 | 80_1 |                4402 | -+            |                              11 | non-ITR         | CAAACATCCCAGGATCTGCTG               |
+| chr6         | 168460131 | 168460132 | 59_1 |                4424 | -+            |                               4 | non-ITR         | CATCCTCAGAGATGGAGGCCA               |
+| chr17        |  72952435 |  72952436 | 76_1 |                4404 | ++            |                               4 | non-ITR         | tgaaatgatcgggcagggata               |
+| chr13        |  31782931 |  31782932 | 68_1 |                4384 | ++            |                               4 | ITR             | CCCTCCTTAAAACCTCAAACA               |
+
+====================================================================================================
+
+Meta-Llama-3-70B-Instruct OUTPUT:
+
+{'chromosome': {'description': 'The chromosome where the transposon is located.',
+                'data_type': 'string'},
+ 'start': {'description': 'The starting position of the transposon on the chromosome.',
+           'data_type': 'integer'},
+ 'end': {'description': 'The ending position of the transposon on the chromosome.',
+         'data_type': 'integer'},
+ 'ID': {'description': 'A unique identifier for the transposon.', 'data_type': 'string'},
+ 'pb-neo_breakpoint': {'description': 'The breakpoint of the piggyBac transposon.',
+                       'data_type': 'integer'},
+ 'orientation': {'description': "The orientation of the transposon, either '+' or '-'.",
+                 'data_type': 'binary'},
+ 'number supporting split reads': {'description': 'The number of split reads supporting the '
+                                                  'transposon.',
+                                   'data_type': 'integer'},
+ 'excision type': {'description': "The type of excision, either 'ITR' or 'non-ITR'.",
+                   'data_type': 'binary'},
+ 'insertion site context (+/- 10bp)': {'description': 'The context of the insertion site, '
+                                                      'including 10 base pairs upstream and '
+                                                      'downstream.',
+                                       'data_type': 'string'}}
+
+====================================================================================================
+
+OpenBioLLM-Llama3-70B OUTPUT:
+
+{'chromosome': {'description': 'The chromosome on which the transposon is located.',
+                'data_ type': 'string'},
+ 'start': {'description': 'The start position of the transposon in the chromosome.',
+           'data_type': 'integer'},
+ 'end': {'description': 'The end position of the transposon in the chromosome.',
+         'data_type': 'integer'},
+ 'ID': {'description': 'A unique identifier for each transposon.', 'data_type': 'string'},
+ 'pb-neo_breakpoint': {'description': 'The breakpoint of the pb-neo gene.', 'data_type': 'integer'},
+ 'orientation': {'description': 'The orientation of the transposon.', 'data_type': 'binary'},
+ 'number supporting split reads': {'description': 'The number of split reads supporting the '
+                                                  'transposon.',
+                                   'data_type': 'integer'},
+ 'excision type': {'description': 'The type of excision of the transposon.', 'data_type': 'string'},
+ 'insertion site context (+/- 10bp)': {'description': 'The sequence context of the insertion site.',
+                                       'data_type': 'string'}}
+
+====================================================================================================
+
+GPT4 OUTPUT:
+
+{'chromosome': {'description': 'The specific chromosome in the human genome where the transposon '
+                               'is located.',
+                'data_type': 'string'},
+ 'start': {'description': 'The starting position of the transposon on the specified chromosome.',
+           'data_type': 'integer'},
+ 'end': {'description': 'The ending position of the transposon on the specified chromosome.',
+         'data_type': 'integer'},
+ 'ID': {'description': 'Unique identifier for each transposon.', 'data_type': 'string'},
+ 'pb-neo_breakpoint': {'description': 'The specific point in the DNA sequence where the transposon '
+                                      'breaks the sequence.',
+                       'data_type': 'integer'},
+ 'orientation': {'description': 'The orientation of the transposon in the DNA sequence, '
+                                "represented by '+' for forward and '-' for reverse.",
+                 'data_type': 'string'},
+ 'number supporting split reads': {'description': 'The number of split reads that support the '
+                                                  'presence of the transposon at the specified '
+                                                  'location.',
+                                   'data_type': 'integer'},
+ 'excision type': {'description': 'The type of excision that the transposon undergoes, either '
+                                  "'ITR' (Inverted Terminal Repeat) or 'non-ITR'.",
+                   'data_type': 'string'},
+ 'insertion site context (+/- 10bp)': {'description': 'The DNA sequence context around the '
+                                                      'insertion site of the transposon, including '
+                                                      '10 base pairs upstream and downstream.',
+                                       'data_type': 'string'}}

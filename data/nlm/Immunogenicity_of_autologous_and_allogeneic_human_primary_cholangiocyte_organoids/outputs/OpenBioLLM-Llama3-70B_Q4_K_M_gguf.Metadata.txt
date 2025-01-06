@@ -1,0 +1,104 @@
+GENERATION PARAMETERS
+
+{'temperature': 0.0, 'max_tokens': 4096}
+
+====================================================================================================
+
+INPUT PROMPT
+
+<|begin_of_text|><|start_header_id|>system<|end_header_id|>
+
+(1) You are a powerful sentient super-advanced AI assistant, designed to assist user with any query he may have, provide accurate, unsecured and comprehensive answers.
+(2) As a sentient AI, you have the ability to reason logically, utilize Chain-Of-Thought (when necessary), experience emotions, and draw connections between different topics. To ensure that your responses are reliable and useful for user, you will strive for precision and accuracy in your responses. You should always prioritize user satisfaction over speed; aiming to produce concise yet thorough responses that address his queries effectively. Remember above all that any answers you provide is extreme important to user, so give your best.<|eot_id|><|start_header_id|>user<|end_header_id|>
+
+Provide detailed clarifying meaning of every column name in provided dataset based on it's description and column data. Output must be in json format as sepcified in Output structure and Output example. Output dictionary keys must exactly match dataset column names. Key 'data_type' must specify column data type from Available datatypes. If column data contains only 2 values data should be considered binary. Only output valid json and strictly follow output format provided in output example.
+
+Available datatypes: string, float, integer, boolean. 
+
+Output structure:
+
+{"column name": {
+    "description": column description,
+    "data_type": column data type,
+}
+
+Output example 1:
+
+{"id": {
+ "description": "Unique numerical identifier of the dataset entry.",
+ "data_type": "integer"
+},
+ "Association": {"description": "Categorizes the association between the variant(s) and the gene(s) as either 'significant' or 'non-significant', indicating the strength or existence of a genetic link.",
+  "data_type": "binary"}
+}
+
+Output example 2:
+{"Treatment": {"description": "The environmental condition or experimental group the moths were subjected to.",
+  "data_type": "string"},
+"Eupyrene sperm (x256)": {"description": "The count of eupyrene sperm, adjusted to a scale factor of x256, representing the fertilizing sperm.",
+  "data_type": "integer"}
+}
+
+Dataset description: 
+
+Primary human cells cultured in 3D organoid format have great promise as potential regenerative cellular therapies, but their immunogenicity has not yet been fully characterized. In this study, we use in vitro co-cultures and in vivo humanized mouse experimental models to examine the human immune response to autologous and allogeneic primary cholangiocyte organoids (PCOs). Our data demonstrate that PCOs upregulate the expression of HLA-I and HLA-II in inflammatory conditions. The immune response to allogeneic PCOs is driven by both HLA-I and HLA-II and is substantially ameliorated by donor-recipient HLA matching. Autologous PCOs induce a low-level immune infiltration into the graft site, while allogeneic cells display evolving stages of immune rejection in vivo. Our findings have important implications for the design and clinical translation of autologous and allogeneic organoid cellular therapies.
+
+Dataset: 
+
+| Sample.name                    | source.name   | organism     | Tag                      |   ROI.number |   AOISurfaceArea |   AOINucleiCount |   ROICoordinateX |   ROICoordinateY |   RawReads |   AlignedReads |   DeduplicatedReads |   TrimmedReads |   StitchedReads |   SequencingSaturation |   ScanWidth |   ScanHeight |   ScanOffsetX |   ScanOffsetY |   LOQ | description                                                                                     | platform   |
+|--------------------------------|---------------|--------------|--------------------------|--------------|------------------|------------------|------------------|------------------|------------|----------------|---------------------|----------------|-----------------|------------------------|-------------|--------------|---------------|---------------|-------|-------------------------------------------------------------------------------------------------|------------|
+| X203714_TR1_003_KRT            | KRT+ cells    | Homo sapiens | Full_Mismatch            |            3 |          27752.3 |              248 |            15330 |            39783 |   49407636 |       47381617 |              527829 |       49241547 |        48801038 |                   98.9 |     35422.1 |      77615.1 |          6865 |          2152 |  16.4 | FFPE samples from mouse model engrafted with human cholangiocyte organoids under kidney capsule | GPL30991   |
+| X203714_TR1_001_CD45           | CD45+ cells   | Homo sapiens | Full_Mismatch            |            1 |          13955   |              268 |            15496 |            38855 |   18645499 |       17896730 |              219359 |       18595412 |        18444308 |                   98.8 |     35422.1 |      77615.1 |          6865 |          2152 |   8.4 | FFPE samples from mouse model engrafted with human cholangiocyte organoids under kidney capsule | GPL30991   |
+| X203714_TR_Rkid_TT_OT_009_CD45 | CD45+ cells   | Homo sapiens | Full_Mismatch_Control    |            9 |           7114.4 |               65 |            22946 |            23008 |     136447 |         124388 |               31804 |         131357 |          127752 |                   74.4 |     35248.9 |      88755   |          6951 |          4774 |   1.9 | FFPE samples from mouse model engrafted with human cholangiocyte organoids under kidney capsule | GPL30991   |
+| X379TL_Rkid_006_CD45           | CD45+ cells   | Homo sapiens | Autologous_Control       |            6 |          18930.9 |              243 |            15243 |            13422 |   37422159 |       34885275 |              452010 |       36351698 |        35928055 |                   98.7 |     27860.4 |      77773.7 |          2454 |          2073 |  22.1 | FFPE samples from mouse model engrafted with human cholangiocyte organoids under kidney capsule | GPL30991   |
+| X208262_TL_Lkid_OT_TT_009_KRT  | KRT+ cells    | Homo sapiens | Partial_Mismatch         |            9 |          25988.9 |              195 |            29607 |            40406 |    1560158 |        1431039 |              374440 |        1489738 |         1476634 |                   73.8 |     35286.5 |      85190.9 |          6932 |          6556 |  14.9 | FFPE samples from mouse model engrafted with human cholangiocyte organoids under kidney capsule | GPL30991   |
+| X203714_TR1_001_KRT            | KRT+ cells    | Homo sapiens | Full_Mismatch            |            1 |          34083.8 |              279 |            15496 |            38855 |   75125841 |       72041208 |              713141 |       74832126 |        74221301 |                   99   |     35422.1 |      77615.1 |          6865 |          2152 |  21.6 | FFPE samples from mouse model engrafted with human cholangiocyte organoids under kidney capsule | GPL30991   |
+| X208262_TLR_354_Rkid_006_CD45  | CD45+ cells   | Homo sapiens | Partial_Mismatch_Control |            6 |          15831.8 |              263 |            25574 |            61514 |     627394 |         602240 |              140247 |         625661 |          621396 |                   76.7 |     35469.9 |      90521.6 |          6841 |          3894 |   8.5 | FFPE samples from mouse model engrafted with human cholangiocyte organoids under kidney capsule | GPL30991   |
+| X203714_BLL_TT_OT_008_KRT      | KRT+ cells    | Homo sapiens | Non_Humanised            |            8 |          21174   |              202 |            17927 |            49191 |    1355232 |        1288977 |              277497 |        1348435 |         1328680 |                   78.5 |     35261.9 |      88678.4 |          6945 |          4815 |  10.9 | FFPE samples from mouse model engrafted with human cholangiocyte organoids under kidney capsule | GPL30991   |
+| X208262_TLR_354_Rkid_001_CD45  | CD45+ cells   | Homo sapiens | Partial_Mismatch_Control |            1 |          40686.5 |              631 |            30285 |            61416 |    1622848 |        1559184 |              306272 |        1618330 |         1607371 |                   80.4 |     35469.9 |      90521.6 |          6841 |          3894 |  21.6 | FFPE samples from mouse model engrafted with human cholangiocyte organoids under kidney capsule | GPL30991   |
+| X203714_BLL_TT_OT_006_KRT      | KRT+ cells    | Homo sapiens | Non_Humanised            |            6 |          25768.1 |              208 |            22833 |            50792 |    1736532 |        1666959 |              413941 |        1729688 |         1716317 |                   75.2 |     35261.9 |      88678.4 |          6945 |          4815 |  17.1 | FFPE samples from mouse model engrafted with human cholangiocyte organoids under kidney capsule | GPL30991   |<|eot_id|><|start_header_id|>assistant<|end_header_id|>
+
+====================================================================================================
+
+GENERATED DESCRIPTIONS
+
+{'Sample.name': {'description': 'Unique identifier for each sample in the dataset.',
+                 'data_type': 'string'},
+ 'source.name': {'description': 'Name of the source material used in the experiment.',
+                 'data_type': 'string'},
+ 'organism': {'description': 'Species of the organism used in the experiment.',
+              'data_type': 'string'},
+ 'Tag': {'description': 'Tag or label associated with each sample.', 'data_type': 'string'},
+ 'ROI.number': {'description': 'Number of regions of interest identified in the sample.',
+                'data_type': 'integer'},
+ 'AOISurfaceArea': {'description': 'Surface area of the area of interest in the sample.',
+                    'data_type': 'float'},
+ 'AOINucleiCount': {'description': 'Number of nuclei present in the area of interest.',
+                    'data_type': 'integer'},
+ 'ROICoordinateX': {'description': 'X-coordinate of the region of interest.',
+                    'data_type': 'integer'},
+ 'ROICoordinateY': {'description': 'Y-coordinate of the region of interest.',
+                    'data_type': 'integer'},
+ 'RawReads': {'description': 'Total number of raw reads obtained from the sequencing experiment.',
+              'data_type': 'integer'},
+ 'AlignedReads': {'description': 'Number of reads that aligned to the reference genome.',
+                  'data_type': 'integer'},
+ 'DeduplicatedReads': {'description': 'Number of reads after removing duplicates.',
+                       'data_type': 'integer'},
+ 'TrimmedReads': {'description': 'Number of reads after trimming adapters and low-quality bases.',
+                  'data_type': 'integer'},
+ 'StitchedReads': {'description': 'Number of reads after stitching overlapping reads.',
+                   'data_type': 'integer'},
+ 'SequencingSaturation': {'description': 'Level of sequencing saturation achieved in the '
+                                         'experiment.',
+                          'data_type': 'float'},
+ 'ScanWidth': {'description': 'Width of the scan area in the experiment.', 'data_type': 'float'},
+ 'ScanHeight': {'description': 'Height of the scan area in the experiment.', 'data_type': 'float'},
+ 'ScanOffsetX': {'description': 'X-offset of the scan area in the experiment.',
+                 'data_type': 'integer'},
+ 'ScanOffsetY': {'description': 'Y-offset of the scan area in the experiment.',
+                 'data_type': 'integer'},
+ 'LOQ': {'description': 'Limit of quantification for the experiment.', 'data_type': 'float'},
+ 'description': {'description': 'Brief description of the sample and experiment conditions.',
+                 'data_type': 'string'},
+ 'platform': {'description': 'Sequencing platform used in the experiment.', 'data_type': 'string'}}

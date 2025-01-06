@@ -1,0 +1,85 @@
+GENERATION PARAMETERS
+
+{'temperature': 0.0, 'max_tokens': 4096}
+
+====================================================================================================
+
+INPUT PROMPT
+
+Provide detailed clarifying meaning of every column name in provided dataset based on it's description and column data. Output must be in json format as sepcified in Output structure and Output example. Output dictionary keys must exactly match dataset column names. Key 'data_type' must specify column data type from Available datatypes. If column data contains only 2 values data should be considered binary. Only output valid json and strictly follow output format provided in output example.
+
+Available datatypes: string, float, integer, boolean. 
+
+Output structure:
+
+{"column name": {
+    "description": column description,
+    "data_type": column data type,
+}
+
+Output example 1:
+
+{"id": {
+ "description": "Unique numerical identifier of the dataset entry.",
+ "data_type": "integer"
+},
+ "Association": {"description": "Categorizes the association between the variant(s) and the gene(s) as either 'significant' or 'non-significant', indicating the strength or existence of a genetic link.",
+  "data_type": "binary"}
+}
+
+Output example 2:
+{"Treatment": {"description": "The environmental condition or experimental group the moths were subjected to.",
+  "data_type": "string"},
+"Eupyrene sperm (x256)": {"description": "The count of eupyrene sperm, adjusted to a scale factor of x256, representing the fertilizing sperm.",
+  "data_type": "integer"}
+}
+
+Dataset description: 
+
+Theory predicts that due to limited resources males should strategically adjust their investment in reproduction and survival. Based on different conceptual framework, experimental designs and study species, many studies support while others contradict this general prediction. Using a moth Ephestia kuehniella whose adults do not feed and thus have fixed resources for their lifetime fitness, we investigated whether males adjusted their investment in various life activities under dynamic socio-sexual environment. We allowed focal males to perceive rivals or additional females without physical contact. We show that males do not adjust the number of sperm they transfer to mates in a given copulation at different immediate or both immediate and mean sperm competition levels. Contradictory to general predictions, our results demonstrate that cues from additional females increase males’ investment in courtship and reduce their lifetime number of copulations and sperm ejaculated, whereas cues from rivals have no effect on these parameters. Males have similar longevity in all treatments. We suggest that the sex pheromone produced by multiple females over-stimulate males, increasing males’ costly flirtations and reducing their lifetime copulation frequency and fecundity. This finding offers a novel explanation for the success of mating disruption strategy using sex pheromones in pest management.
+
+Dataset: 
+
+| Treatment    |   Replicate | Number of mating   | Mating duration (h)   | Longivity (d)   | Eupyrene sperm (x256)   | Apyrene sperm (x3000)   |
+|--------------|-------------|--------------------|-----------------------|-----------------|-------------------------|-------------------------|
+| Plus females |           7 | 4                  | 3.17                  | .               | 49                      | 22                      |
+| Control      |           6 | 1                  | 2.33                  | 10              | 25                      | 11.5                    |
+| Control      |          15 | 2                  | 2.75                  | .               | 24                      | 11.63                   |
+| Plus females |          13 | 2                  | 2                     | .               | 28                      | 15.23                   |
+| Plus males   |           2 | .                  | .                     | .               | .                       | .                       |
+| Control      |           4 | 6                  | 4                     | .               | 34                      | 17.75                   |
+| Plus males   |          15 | 2                  | 2.5                   | .               | 31                      | 24.5                    |
+| Control      |           2 | 5                  | 4.33                  | .               | 35                      | 6.88                    |
+| Plus males   |           1 | 3                  | 3                     | .               | 47                      | 31.13                   |
+| Plus females |          11 | 1                  | 2.17                  | 6               | 28                      | 23.625                  |
+| Plus males   |           1 | 1                  | 2                     | 13              | 59                      | 22.13                   |
+| Plus males   |          10 | 4                  | 2.83                  | .               | 41                      | 21.13                   |
+| Plus males   |          12 | 2                  | 2.92                  | .               | 28                      | 10.25                   |
+| Control      |           4 | 3                  | 3.92                  | .               | 23                      | 14.75                   |
+| Plus males   |           3 | 3                  | 1.83                  | .               | 25                      | 4.63                    |
+| Control      |           8 | 2                  | 2.67                  | .               | 26                      | 23                      |
+| Control      |          12 | 1                  | 2.17                  | 12              | 24                      | 22.38                   |
+| Plus males   |           1 | 5                  | 2.83                  | .               | 37                      | 22.88                   |
+| Plus males   |          13 | 1                  | 3.17                  | 10              | 34                      | 14.13                   |
+| Control      |           7 | 5                  | 4.83                  | .               | 19                      | 14.88                   |
+====================================================================================================
+
+GENERATED DESCRIPTIONS
+
+{'Treatment': {'description': 'The environmental condition or experimental group the moths were '
+                              "subjected to. This includes 'Plus females', 'Control', and 'Plus "
+                              "males' groups.",
+               'data_type': 'string'},
+ 'Replicate': {'description': 'The numerical identifier of the replicate experiment.',
+               'data_type': 'integer'},
+ 'Number of mating': {'description': 'The number of times the male moth mated in the experiment.',
+                      'data_type': 'integer'},
+ 'Mating duration (h)': {'description': 'The total duration of mating by the male moth in hours.',
+                         'data_type': 'float'},
+ 'Longivity (d)': {'description': 'The lifespan of the male moth in days.', 'data_type': 'float'},
+ 'Eupyrene sperm (x256)': {'description': 'The count of eupyrene sperm, adjusted to a scale factor '
+                                          'of x256, representing the fertilizing sperm.',
+                           'data_type': 'integer'},
+ 'Apyrene sperm (x3000)': {'description': 'The count of apyrene sperm, adjusted to a scale factor '
+                                          'of x3000, representing the non-fertilizing sperm.',
+                           'data_type': 'float'}}

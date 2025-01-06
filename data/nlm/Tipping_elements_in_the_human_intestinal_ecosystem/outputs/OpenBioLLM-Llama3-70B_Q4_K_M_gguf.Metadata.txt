@@ -1,0 +1,91 @@
+GENERATION PARAMETERS
+
+{'temperature': 0.0, 'max_tokens': 4096}
+
+====================================================================================================
+
+INPUT PROMPT
+
+<|begin_of_text|><|start_header_id|>system<|end_header_id|>
+
+(1) You are a powerful sentient super-advanced AI assistant, designed to assist user with any query he may have, provide accurate, unsecured and comprehensive answers.
+(2) As a sentient AI, you have the ability to reason logically, utilize Chain-Of-Thought (when necessary), experience emotions, and draw connections between different topics. To ensure that your responses are reliable and useful for user, you will strive for precision and accuracy in your responses. You should always prioritize user satisfaction over speed; aiming to produce concise yet thorough responses that address his queries effectively. Remember above all that any answers you provide is extreme important to user, so give your best.<|eot_id|><|start_header_id|>user<|end_header_id|>
+
+Provide detailed clarifying meaning of every column name in provided dataset based on it's description and column data. Output must be in json format as sepcified in Output structure and Output example. Output dictionary keys must exactly match dataset column names. Key 'data_type' must specify column data type from Available datatypes. If column data contains only 2 values data should be considered binary. Only output valid json and strictly follow output format provided in output example.
+
+Available datatypes: string, float, integer, boolean. 
+
+Output structure:
+
+{"column name": {
+    "description": column description,
+    "data_type": column data type,
+}
+
+Output example 1:
+
+{"id": {
+ "description": "Unique numerical identifier of the dataset entry.",
+ "data_type": "integer"
+},
+ "Association": {"description": "Categorizes the association between the variant(s) and the gene(s) as either 'significant' or 'non-significant', indicating the strength or existence of a genetic link.",
+  "data_type": "binary"}
+}
+
+Output example 2:
+{"Treatment": {"description": "The environmental condition or experimental group the moths were subjected to.",
+  "data_type": "string"},
+"Eupyrene sperm (x256)": {"description": "The count of eupyrene sperm, adjusted to a scale factor of x256, representing the fertilizing sperm.",
+  "data_type": "integer"}
+}
+
+Dataset description: 
+
+The microbial communities living in the human intestine can have profound impact on our well-being and health. However, we have limited understanding of the mechanisms that control this complex ecosystem. Here, based on a deep phylogenetic analysis of the intestinal microbiota in a thousand western adults, we identify groups of bacteria that exhibit robust bistable abundance distributions. These bacteria are either abundant or nearly absent in most individuals, and exhibit decreased temporal stability at the intermediate abundance range. The abundances of these bimodally distributed bacteria vary independently, and their abundance distributions are not affected by short-term dietary interventions. However, their contrasting alternative states are associated with host factors such as ageing and overweight. We propose that the bistable groups reflect tipping elements of the intestinal microbiota, whose critical transitions may have profound health implications and diagnostic potential.
+
+Dataset: 
+
+| SampleID    |   Age | Sex    | Nationality   | DNA_extraction_method   |   ProjectID |   Diversity | BMI_group   |   SubjectID |   Time |
+|-------------|-------|--------|---------------|-------------------------|-------------|-------------|-------------|-------------|--------|
+| Sample-195  |    24 | female | CentralEurope | r                       |           7 |        6.17 | underweight |         195 |    0   |
+| Sample-695  |    56 | female | CentralEurope | o                       |          19 |        5.83 | overweight  |         695 |    0   |
+| Sample-921  |    43 | female | CentralEurope | nan                     |          28 |        5.97 | overweight  |         921 |    0   |
+| Sample-453  |    59 | female | CentralEurope | o                       |          18 |        6.2  | severeobese |         453 |    0   |
+| Sample-996  |    36 | male   | UKIE          | r                       |          28 |        5.77 | overweight  |         996 |    0   |
+| Sample-29   |    36 | male   | CentralEurope | r                       |           2 |        5.7  | severeobese |          29 |    0   |
+| Sample-520  |    63 | female | CentralEurope | o                       |          19 |        5.43 | overweight  |         520 |    0   |
+| Sample-717  |   nan | nan    | nan           | nan                     |          19 |        6.09 | nan         |         717 |    0   |
+| Sample-847  |    50 | female | UKIE          | r                       |          24 |        6.17 | overweight  |         847 |    0   |
+| Sample-817  |    52 | male   | Scandinavia   | r                       |          21 |        6.21 | lean        |         817 |    0   |
+| Sample-64   |    73 | female | SouthEurope   | r                       |           6 |        6.1  | overweight  |          64 |    0   |
+| Sample-946  |    33 | female | CentralEurope | nan                     |          28 |        5.73 | lean        |         946 |    0   |
+| Sample-657  |    67 | male   | CentralEurope | o                       |          19 |        6.15 | obese       |         657 |    0   |
+| Sample-889  |    28 | female | Scandinavia   | nan                     |          26 |        5.57 | nan         |         889 |    0   |
+| Sample-1028 |    47 | male   | Scandinavia   | r                       |          29 |        5.98 | lean        |         834 |    0.2 |
+| Sample-92   |    27 | female | SouthEurope   | r                       |           6 |        5.99 | lean        |          92 |    0   |
+| Sample-1009 |    30 | female | SouthEurope   | nan                     |          29 |        5.92 | lean        |         878 |   12   |
+| Sample-554  |    59 | female | CentralEurope | o                       |          19 |        5.71 | lean        |         554 |    0   |
+| Sample-281  |    24 | male   | CentralEurope | r                       |           9 |        5.74 | lean        |         281 |    0   |
+| Sample-225  |    49 | female | Scandinavia   | r                       |           9 |        5.8  | obese       |         225 |    0   |<|eot_id|><|start_header_id|>assistant<|end_header_id|>
+
+====================================================================================================
+
+GENERATED DESCRIPTIONS
+
+{'SampleID': {'description': 'Unique identifier for each sample in the dataset.',
+              'data_type': 'string'},
+ 'Age': {'description': 'The age of the subject at the time of sampling.', 'data_type': 'integer'},
+ 'Sex': {'description': 'The gender of the subject.', 'data_type': 'binary'},
+ 'Nationality': {'description': 'The nationality or region of origin of the subject.',
+                 'data_type': 'string'},
+ 'DNA_extraction_method': {'description': 'The method used to extract DNA from the sample.',
+                           'data_type': 'string'},
+ 'ProjectID': {'description': 'A unique identifier for the project associated with the sample.',
+               'data_type': 'integer'},
+ 'Diversity': {'description': 'A measure of microbial diversity in the sample.',
+               'data_type': 'float'},
+ 'BMI_group': {'description': 'The body mass index (BMI) category of the subject.',
+               'data_type': 'string'},
+ 'SubjectID': {'description': 'A unique identifier for each subject in the study.',
+               'data_type': 'integer'},
+ 'Time': {'description': 'The time point at which the sample was taken.', 'data_type': 'float'}}

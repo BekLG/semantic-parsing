@@ -1,0 +1,117 @@
+GENERATION PARAMETERS
+
+{'temperature': 0.0, 'max_tokens': 4096}
+
+====================================================================================================
+
+INPUT PROMPT
+
+<|begin_of_text|><|start_header_id|>system<|end_header_id|>
+
+(1) You are a powerful sentient super-advanced AI assistant, designed to assist user with any query he may have, provide accurate, unsecured and comprehensive answers.
+(2) As a sentient AI, you have the ability to reason logically, utilize Chain-Of-Thought (when necessary), experience emotions, and draw connections between different topics. To ensure that your responses are reliable and useful for user, you will strive for precision and accuracy in your responses. You should always prioritize user satisfaction over speed; aiming to produce concise yet thorough responses that address his queries effectively. Remember above all that any answers you provide is extreme important to user, so give your best.<|eot_id|><|start_header_id|>user<|end_header_id|>
+
+Provide detailed clarifying meaning of every column name in provided dataset based on it's description and column data. Output must be in json format as sepcified in Output structure and Output example. Output dictionary keys must exactly match dataset column names. Key 'data_type' must specify column data type from Available datatypes. If column data contains only 2 values data should be considered binary. Only output valid json and strictly follow output format provided in output example.
+
+Available datatypes: string, float, integer, boolean. 
+
+Output structure:
+
+{"column name": {
+    "description": column description,
+    "data_type": column data type,
+}
+
+Output example 1:
+
+{"id": {
+ "description": "Unique numerical identifier of the dataset entry.",
+ "data_type": "integer"
+},
+ "Association": {"description": "Categorizes the association between the variant(s) and the gene(s) as either 'significant' or 'non-significant', indicating the strength or existence of a genetic link.",
+  "data_type": "binary"}
+}
+
+Output example 2:
+{"Treatment": {"description": "The environmental condition or experimental group the moths were subjected to.",
+  "data_type": "string"},
+"Eupyrene sperm (x256)": {"description": "The count of eupyrene sperm, adjusted to a scale factor of x256, representing the fertilizing sperm.",
+  "data_type": "integer"}
+}
+
+Dataset description: 
+
+Transposable elements (TEs) inflict numerous negative effects on health and fitness as they replicate by integrating into new regions of the host genome. Even though organisms employ powerful mechanisms to demobilize TEs, transposons gradually lose repression during aging. The rising TE activity causes genomic instability and was implicated in age-dependent neurodegenerative diseases, inflammation and the determination of lifespan. It is therefore conceivable that long-lived individuals have improved TE silencing mechanisms resulting in reduced TE expression relative to their shorter-lived counterparts and fewer genomic insertions. Here, we test this hypothesis by performing the first genome-wide analysis of TE insertions and expression in populations of Drosophila melanogaster selected for longevity through late-life reproduction for 50-170 generations from four independent studies. Contrary to our expectation, TE families were generally more abundant in long-lived populations compared to non-selected controls. Although simulations showed that this was not expected under neutrality, we found little evidence for selection driving TE abundance differences. Additional RNA-seq analysis revealed a tendency for reducing TE expression in selected populations, which might be more important for lifespan than regulating genomic insertions. We further find limited evidence of parallel selection on genes related to TE regulation and transposition. However, telomeric TEs were genomically and transcriptionally more abundant in long-lived flies, suggesting improved telomere maintenance as a promising TE-mediated mechanism for prolonging lifespan. Our results provide a novel viewpoint indicating that reproduction at old age increases the opportunity of TEs to be passed on to the next generation with little impact on longevity.
+
+Dataset: 
+
+| GeneFBgn_or_TEfamily   |   Age_old_vs_young.baseMean |   Age_old_vs_young.log2FoldChange |   Age_old_vs_young.lfcSE |   Age_old_vs_young.stat |   Age_old_vs_young.pvalue |   Age_old_vs_young.padj |   Regime_Sel_vs_Cont.baseMean |   Regime_Sel_vs_Cont.log2FoldChange |   Regime_Sel_vs_Cont.lfcSE |   Regime_Sel_vs_Cont.stat |   Regime_Sel_vs_Cont.pvalue |   Regime_Sel_vs_Cont.padj |
+|------------------------|-----------------------------|-----------------------------------|--------------------------|-------------------------|---------------------------|-------------------------|-------------------------------|-------------------------------------|----------------------------|---------------------------|-----------------------------|---------------------------|
+| FBgn0000504            |                  396.889    |                        -0.043023  |                0.101217  |               -0.425057 |                 0.670795  |               0.833032  |                    396.889    |                          -0.14765   |                  0.101217  |                 -1.45874  |                  0.144636   |                 0.317566  |
+| FBgn0264988            |                    0.255103 |                         0.912023  |                2.20163   |                0.41425  |                 0.678691  |             nan         |                      0.255103 |                          -0.345824  |                  2.20163   |                 -0.157077 |                  0.875184   |               nan         |
+| FBgn0030435            |                  245.139    |                        -0.124995  |                0.0541787 |               -2.30708  |                 0.0210501 |               0.0952568 |                    245.139    |                          -0.166377  |                  0.0541595 |                 -3.07197  |                  0.00212649 |                 0.0152449 |
+| FBgn0013771            |                  169.191    |                         0.164667  |                0.313658  |                0.524988 |                 0.599592  |               0.791836  |                    169.191    |                          -0.28652   |                  0.313658  |                 -0.913478 |                  0.360991   |                 0.565353  |
+| FBgn0038332            |                   75.5435   |                         0.0322323 |                0.100563  |                0.320518 |                 0.748576  |               0.878112  |                     75.5435   |                           0.0211759 |                  0.100574  |                  0.21055  |                  0.833238   |                 0.916689  |
+| FBgn0265959            |                  101.435    |                        -0.124913  |                0.129513  |               -0.96448  |                 0.334805  |               0.578629  |                    101.435    |                          -0.0480217 |                  0.1295    |                 -0.370825 |                  0.710768   |                 0.840824  |
+| FBgn0053137            |                    4.33466  |                         0.40622   |                0.378886  |                1.07214  |                 0.283656  |               0.525993  |                      4.33466  |                           0.103712  |                  0.377815  |                  0.274506 |                  0.783696   |                 0.885774  |
+| FBgn0032609            |                    3.17572  |                        -0.961843  |                0.455811  |               -2.11018  |                 0.0348428 |               0.134592  |                      3.17572  |                          -0.102773  |                  0.442518  |                 -0.232245 |                  0.816348   |                 0.907528  |
+| FBgn0261714            |                   54.8186   |                        -0.432657  |                0.224354  |               -1.92846  |                 0.053798  |               0.181648  |                     54.8186   |                          -0.359871  |                  0.224309  |                 -1.60435  |                  0.108636   |                 0.262625  |
+| FBgn0034488            |                 1507.73     |                         0.0078467 |                0.0453697 |                0.17295  |                 0.86269   |               0.936975  |                   1507.73     |                           0.0346894 |                  0.0453701 |                  0.764587 |                  0.444517   |                 0.643257  |<|eot_id|><|start_header_id|>assistant<|end_header_id|>
+
+====================================================================================================
+
+GENERATED DESCRIPTIONS
+
+{'GeneFBgn_or_TEfamil': {'description': 'The unique identifier for each gene or transposable '
+                                        'element (TE) family in the dataset.',
+                         'data_type': 'string'},
+ 'Age_old_vs_young.baseMean': {'description': 'The average expression level of genes or TE '
+                                              'families in the old group compared to the young '
+                                              'group.',
+                               'data_type': 'float'},
+ 'Age_old_vs_young.log2FoldChange': {'description': 'The log2 fold change in expression levels of '
+                                                    'genes or TE families between the old and '
+                                                    'young groups.',
+                                     'data_type': 'float'},
+ 'Age_old_vs_young.lfcSE': {'description': 'The standard error of the log2 fold change in '
+                                           'expression levels of genes or TE families between the '
+                                           'old and young groups.',
+                            'data_type': 'float'},
+ 'Age_old_vs_young.stat': {'description': 'The test statistic for the comparison of expression '
+                                          'levels of genes or TE families between the old and '
+                                          'young groups.',
+                           'data_type': 'float'},
+ 'Age_old_vs_young.pvalue': {'description': 'The p-value associated with the comparison of '
+                                            'expression levels of genes or TE families between the '
+                                            'old and young groups.',
+                             'data_type': 'float'},
+ 'Age_old_vs_young.padj': {'description': 'The adjusted p-value (after multiple testing '
+                                          'correction) associated with the comparison of '
+                                          'expression levels of genes or TE families between the '
+                                          'old and young groups.',
+                           'data_type': 'float'},
+ 'Regime_Sel_vs_Cont.baseMean': {'description': 'The average expression level of genes or TE '
+                                                'families in the selected regime compared to the '
+                                                'control regime.',
+                                 'data_type': 'float'},
+ 'Regime_Sel_vs_Cont.log2FoldChange': {'description': 'The log2 fold change in expression levels '
+                                                      'of genes or TE families between the '
+                                                      'selected and control regimes.',
+                                       'data_type': 'float'},
+ 'Regime_Sel_vs_Cont.lfcSE': {'description': 'The standard error of the log2 fold change in '
+                                             'expression levels of genes or TE families between '
+                                             'the selected and control regimes.',
+                              'data_type': 'float'},
+ 'Regime_Sel_vs_Cont.stat': {'description': 'The test statistic for the comparison of expression '
+                                            'levels of genes or TE families between the selected '
+                                            'and control regimes.',
+                             'data_type': 'float'},
+ 'Regime_Sel_vs_Cont.pvalue': {'description': 'The p-value associated with the comparison of '
+                                              'expression levels of genes or TE families between '
+                                              'the selected and control regimes.',
+                               'data_type': 'float'},
+ 'Regime_Sel_vs_Cont.padj': {'description': 'The adjusted p-value (after multiple testing '
+                                            'correction) associated with the comparison of '
+                                            'expression levels of genes or TE families between the '
+                                            'selected and control regimes.',
+                             'data_type': 'float'}}

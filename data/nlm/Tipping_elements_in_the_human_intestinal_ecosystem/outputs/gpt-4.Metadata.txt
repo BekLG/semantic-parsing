@@ -1,0 +1,95 @@
+GENERATION PARAMETERS
+
+{'temperature': 0.0, 'max_tokens': 4096}
+
+====================================================================================================
+
+INPUT PROMPT
+
+Provide detailed clarifying meaning of every column name in provided dataset based on it's description and column data. Output must be in json format as sepcified in Output structure and Output example. Output dictionary keys must exactly match dataset column names. Key 'data_type' must specify column data type from Available datatypes. If column data contains only 2 values data should be considered binary. Only output valid json and strictly follow output format provided in output example.
+
+Available datatypes: string, float, integer, boolean. 
+
+Output structure:
+
+{"column name": {
+    "description": column description,
+    "data_type": column data type,
+}
+
+Output example 1:
+
+{"id": {
+ "description": "Unique numerical identifier of the dataset entry.",
+ "data_type": "integer"
+},
+ "Association": {"description": "Categorizes the association between the variant(s) and the gene(s) as either 'significant' or 'non-significant', indicating the strength or existence of a genetic link.",
+  "data_type": "binary"}
+}
+
+Output example 2:
+{"Treatment": {"description": "The environmental condition or experimental group the moths were subjected to.",
+  "data_type": "string"},
+"Eupyrene sperm (x256)": {"description": "The count of eupyrene sperm, adjusted to a scale factor of x256, representing the fertilizing sperm.",
+  "data_type": "integer"}
+}
+
+Dataset description: 
+
+The microbial communities living in the human intestine can have profound impact on our well-being and health. However, we have limited understanding of the mechanisms that control this complex ecosystem. Here, based on a deep phylogenetic analysis of the intestinal microbiota in a thousand western adults, we identify groups of bacteria that exhibit robust bistable abundance distributions. These bacteria are either abundant or nearly absent in most individuals, and exhibit decreased temporal stability at the intermediate abundance range. The abundances of these bimodally distributed bacteria vary independently, and their abundance distributions are not affected by short-term dietary interventions. However, their contrasting alternative states are associated with host factors such as ageing and overweight. We propose that the bistable groups reflect tipping elements of the intestinal microbiota, whose critical transitions may have profound health implications and diagnostic potential.
+
+Dataset: 
+
+| SampleID    |   Age | Sex    | Nationality   | DNA_extraction_method   |   ProjectID |   Diversity | BMI_group   |   SubjectID |   Time |
+|-------------|-------|--------|---------------|-------------------------|-------------|-------------|-------------|-------------|--------|
+| Sample-787  |    41 | female | Scandinavia   | p                       |          20 |        5.96 | lean        |         787 |    0   |
+| Sample-406  |    38 | female | SouthEurope   | o                       |          17 |        6.03 | lean        |         406 |    0   |
+| Sample-1122 |    34 | male   | Scandinavia   | r                       |          37 |        5.75 | overweight  |         218 |    2.4 |
+| Sample-995  |    43 | female | UKIE          | r                       |          28 |        5.58 | overweight  |         995 |    0   |
+| Sample-192  |    45 | female | CentralEurope | r                       |           7 |        5.97 | lean        |         192 |    0   |
+| Sample-847  |    50 | female | UKIE          | r                       |          24 |        6.17 | overweight  |         847 |    0   |
+| Sample-807  |    45 | male   | Scandinavia   | r                       |          21 |        6.17 | lean        |         807 |    0   |
+| Sample-120  |    56 | male   | CentralEurope | r                       |           7 |        6.07 | lean        |         120 |    0   |
+| Sample-358  |    52 | female | CentralEurope | o                       |          13 |        5.6  | overweight  |         358 |    0   |
+| Sample-950  |    33 | female | CentralEurope | nan                     |          28 |        5.3  | lean        |         950 |    0   |
+| Sample-327  |    51 | female | CentralEurope | r                       |          12 |        5.69 | overweight  |         327 |    0   |
+| Sample-562  |    39 | female | CentralEurope | o                       |          19 |        5.78 | obese       |         562 |    0   |
+| Sample-908  |    53 | male   | EasternEurope | nan                     |          27 |        5.72 | nan         |         908 |    0   |
+| Sample-736  |   nan | nan    | nan           | nan                     |          19 |        5.82 | nan         |         736 |    0   |
+| Sample-745  |    53 | male   | US            | nan                     |          19 |        5.75 | obese       |         745 |    0   |
+| Sample-590  |    61 | female | CentralEurope | o                       |          19 |        5.88 | lean        |         590 |    0   |
+| Sample-240  |    55 | female | Scandinavia   | r                       |           9 |        6.09 | severeobese |         240 |    0   |
+| Sample-1151 |    56 | female | Scandinavia   | r                       |          38 |        5.85 | overweight  |         235 |    2.3 |
+| Sample-850  |    20 | female | UKIE          | r                       |          24 |        6.05 | overweight  |         850 |    0   |
+| Sample-1089 |    50 | female | CentralEurope | o                       |          37 |        5.92 | obese       |         355 |    3.1 |
+====================================================================================================
+
+GENERATED DESCRIPTIONS
+
+{'SampleID': {'description': 'Unique identifier of the sample collected from an individual for the '
+                             'study.',
+              'data_type': 'string'},
+ 'Age': {'description': 'Age of the individual from whom the sample was collected.',
+         'data_type': 'integer'},
+ 'Sex': {'description': 'Biological sex of the individual from whom the sample was collected.',
+         'data_type': 'binary'},
+ 'Nationality': {'description': 'Nationality or geographic origin of the individual from whom the '
+                                'sample was collected.',
+                 'data_type': 'string'},
+ 'DNA_extraction_method': {'description': 'Method used to extract DNA from the collected sample.',
+                           'data_type': 'string'},
+ 'ProjectID': {'description': 'Unique identifier of the project under which the sample was '
+                              'collected and studied.',
+               'data_type': 'integer'},
+ 'Diversity': {'description': 'Measure of the diversity of microbial communities in the collected '
+                              'sample, likely based on a specific diversity index.',
+               'data_type': 'float'},
+ 'BMI_group': {'description': "Categorization of the individual's Body Mass Index (BMI) indicating "
+                              'their weight status (e.g., lean, overweight, obese).',
+               'data_type': 'string'},
+ 'SubjectID': {'description': 'Unique identifier of the individual from whom the sample was '
+                              'collected.',
+               'data_type': 'integer'},
+ 'Time': {'description': 'Time point at which the sample was collected, likely in relation to a '
+                         'specific event or the start of the study.',
+          'data_type': 'float'}}

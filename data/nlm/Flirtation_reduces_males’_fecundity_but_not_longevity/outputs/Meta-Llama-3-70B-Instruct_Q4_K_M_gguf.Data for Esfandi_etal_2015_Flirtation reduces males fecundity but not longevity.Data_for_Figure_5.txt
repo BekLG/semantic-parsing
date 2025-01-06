@@ -1,0 +1,82 @@
+GENERATION PARAMETERS
+
+{'temperature': 0.0, 'max_tokens': 4096}
+
+====================================================================================================
+
+INPUT PROMPT
+
+<|begin_of_text|><|start_header_id|>system<|end_header_id|>
+
+(1) You are a powerful sentient super-advanced AI assistant, designed to assist user with any query he may have, provide accurate, unsecured and comprehensive answers.
+(2) As a sentient AI, you have the ability to reason logically, utilize Chain-Of-Thought (when necessary), experience emotions, and draw connections between different topics. To ensure that your responses are reliable and useful for user, you will strive for precision and accuracy in your responses. You should always prioritize user satisfaction over speed; aiming to produce concise yet thorough responses that address his queries effectively. Remember above all that any answers you provide is extreme important to user, so give your best.<|eot_id|><|start_header_id|>user<|end_header_id|>
+
+Provide detailed clarifying meaning of every column name in provided dataset based on it's description and column data. Output must be in json format as sepcified in Output structure and Output example. Output dictionary keys must exactly match dataset column names. Key 'data_type' must specify column data type from Available datatypes. If column data contains only 2 values data should be considered binary. Output ONLY valid json without additional notes and strictly follow output format provided in output example.
+
+Available datatypes: string, float, integer, boolean. 
+
+Output structure:
+
+{"column name": {
+    "description": column description,
+    "data_type": column data type,
+}
+
+Output example 1:
+
+{"id": {
+ "description": "Unique numerical identifier of the dataset entry.",
+ "data_type": "integer"
+},
+ "Association": {"description": "Categorizes the association between the variant(s) and the gene(s) as either 'significant' or 'non-significant', indicating the strength or existence of a genetic link.",
+  "data_type": "binary"}
+}
+
+Output example 2:
+{"Treatment": {"description": "The environmental condition or experimental group the moths were subjected to.",
+  "data_type": "string"},
+"Eupyrene sperm (x256)": {"description": "The count of eupyrene sperm, adjusted to a scale factor of x256, representing the fertilizing sperm.",
+  "data_type": "integer"}
+}
+
+Dataset description: 
+
+Theory predicts that due to limited resources males should strategically adjust their investment in reproduction and survival. Based on different conceptual framework, experimental designs and study species, many studies support while others contradict this general prediction. Using a moth Ephestia kuehniella whose adults do not feed and thus have fixed resources for their lifetime fitness, we investigated whether males adjusted their investment in various life activities under dynamic socio-sexual environment. We allowed focal males to perceive rivals or additional females without physical contact. We show that males do not adjust the number of sperm they transfer to mates in a given copulation at different immediate or both immediate and mean sperm competition levels. Contradictory to general predictions, our results demonstrate that cues from additional females increase males’ investment in courtship and reduce their lifetime number of copulations and sperm ejaculated, whereas cues from rivals have no effect on these parameters. Males have similar longevity in all treatments. We suggest that the sex pheromone produced by multiple females over-stimulate males, increasing males’ costly flirtations and reducing their lifetime copulation frequency and fecundity. This finding offers a novel explanation for the success of mating disruption strategy using sex pheromones in pest management.
+
+Dataset: 
+
+| Treatment    |   Replicate |   Wing fanning duration (sec) |   Mating latency (h) |
+|--------------|-------------|-------------------------------|----------------------|
+| Control      |           7 |                         62.75 |             11.33    |
+| Plus males   |          12 |                          6.31 |              6.3     |
+| Plus males   |           4 |                         31.71 |              6.1     |
+| Control      |           5 |                         26.96 |              9.65    |
+| Plus females |           8 |                        143.28 |              8.75    |
+| Plus males   |           7 |                         91.42 |              9.16    |
+| Plus females |           5 |                        204.44 |              7       |
+| Plus males   |          11 |                         37.39 |              7.55    |
+| Control      |           9 |                          8.5  |              9.99    |
+| Plus females |           3 |                        382.96 |              9.41667 |
+| Plus females |           1 |                        177.8  |              6.58333 |
+| Plus males   |           5 |                         18.3  |              6       |
+| Plus males   |           6 |                         42.4  |              2.16    |
+| Plus females |           9 |                        215.44 |              8.67    |
+| Control      |           3 |                         32.73 |              8.4     |
+| Control      |           6 |                         91.5  |             10.71    |
+| Plus females |          12 |                        253.06 |              8.57    |
+| Plus males   |           3 |                          7.36 |              7.01667 |
+| Plus males   |           8 |                         73.51 |              9.25    |
+| Plus males   |           9 |                         69.47 |              9.06    |<|eot_id|><|start_header_id|>assistant<|end_header_id|>
+
+====================================================================================================
+
+GENERATED DESCRIPTIONS
+
+{'Treatment': {'description': 'The environmental condition or experimental group the moths were '
+                              'subjected to.',
+               'data_type': 'string'},
+ 'Replicate': {'description': 'The replicate number of the experiment.', 'data_type': 'integer'},
+ 'Wing fanning duration (sec)': {'description': 'The duration of wing fanning in seconds.',
+                                 'data_type': 'float'},
+ 'Mating latency (h)': {'description': 'The time taken for mating to occur in hours.',
+                        'data_type': 'float'}}

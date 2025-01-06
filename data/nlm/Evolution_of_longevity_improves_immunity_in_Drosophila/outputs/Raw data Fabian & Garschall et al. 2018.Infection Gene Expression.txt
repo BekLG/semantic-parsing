@@ -1,0 +1,145 @@
+Dataset description: 
+
+Much has been learned about the genetics of aging from studies in model organisms, but still little is known about naturally occurring alleles that contribute to variation in longevity. For example, analysis of mutants and transgenes has identified insulin signaling as a major regulator of longevity, yet whether standing variation in this pathway underlies microevolutionary changes in lifespan and correlated fitness traits remains largely unclear. Here we have analyzed the genomes of a set of Drosophila melanogaster lines that have been maintained under direct selection for postponed reproduction and indirect selection for longevity, relative to unselected control lines, for over 35 years. We identified many candidate loci shaped by selection for longevity and late-life fertility, but – contrary to expectation – we did not find overrepresentation of canonical longevity genes. Instead, we found an enrichment of immunity genes, particularly in the Toll pathway, suggesting that evolutionary changes in immune function might underpin – in part – the evolution of late-life fertility and longevity. To test whether this genomic signature is causative, we performed functional experiments. In contrast to control flies, long-lived flies tended to downregulate the expression of antimicrobial peptides upon infection with age yet survived fungal, bacterial and viral infections significantly better, consistent with alleviated immunosenescence. To examine whether genes of the Toll pathway directly affect longevity, we employed conditional knockdown using in vivo RNAi. In adults, RNAi against the Toll receptor extended lifespan, whereas silencing the pathway antagonist cactus – causing immune hyperactivation – dramatically shortened lifespan. Together, our results suggest that genetic changes in the age-dependent regulation of immune homeostasis might contribute to the evolution of longer life.
+
+Dataset: 
+
+| Line   | Sex   | Regime   | Age   | Treatment                   |   Sample | Biol. replicate   |   Ct Tech.Rep. Avg |   Ct Tech.Rep. Avg.1 |   Ct Tech.Rep. Avg.2 |   Ct Tech.Rep. Avg.3 |   Ct Tech.Rep. Avg.4 |   Ct Tech.Rep. Avg.5 |
+|--------|-------|----------|-------|-----------------------------|----------|-------------------|--------------------|----------------------|----------------------|----------------------|----------------------|----------------------|
+| 2La    | f     | Sel      | young | Prick control               |        9 | b                 |            17.6267 |              26.18   |              21.4818 |              18.9967 |              25.76   |              23.2967 |
+| Lb     | f     | Sel      | old   | Prick control               |       32 | a                 |            18.1433 |              26.8167 |              22.0577 |              17.67   |              20.0933 |              18.3633 |
+| 2Lb    | f     | Sel      | young | uninfected                  |        4 | c                 |            17.83   |              26.45   |              21.7164 |              19.775  |              25.65   |              27.0267 |
+| Lb     | f     | Sel      | young | E. carotovora carotovora 15 |       14 | b                 |            18.56   |              26.5833 |              22.2123 |              16.4633 |              18.13   |              15.8967 |
+| 2Lb    | f     | Sel      | old   | E. carotovora carotovora 15 |       40 | a                 |            17.7    |              26.6233 |              21.7079 |              16.9233 |              18.02   |              16.6133 |
+| Ra     | f     | Ctrl     | old   | E. carotovora carotovora 15 |       41 | b                 |            17.8133 |              27.19   |              22.0078 |              17.06   |              18.5867 |              16.1633 |
+| Lb     | f     | Sel      | young | uninfected                  |        2 | c                 |            18.3267 |              28.14   |              22.7093 |              21.51   |              24.0567 |              24.74   |
+| Rb     | f     | Ctrl     | old   | uninfected                  |       30 | d                 |            18.5367 |              28.6    |              23.025  |              20.0667 |              20.2    |              20.9633 |
+| 2Lb    | f     | Sel      | old   | uninfected                  |       28 | b                 |            17.82   |              26.47   |              21.7185 |              20.4433 |              26.4567 |              25.695  |
+| 2Lb    | f     | Sel      | young | uninfected                  |        4 | a                 |            17.7967 |              26.5633 |              21.7426 |              19.9533 |              25.9467 |              24.9133 |
+| Ra     | f     | Ctrl     | young | Prick control               |       11 | b                 |            17.77   |              26.78   |              21.8147 |              19.0167 |              21.28   |              18.43   |
+| Ra     | f     | Ctrl     | old   | E. carotovora carotovora 15 |       41 | a                 |            17.8133 |              27.0167 |              21.9376 |              17.3267 |              18.6567 |              16.25   |
+| 2La    | f     | Sel      | old   | Prick control               |       33 | c                 |            17.83   |              26.43   |              21.7082 |              19.48   |              24.4367 |              21.6667 |
+| 2La    | f     | Sel      | young | Prick control               |        9 | c                 |            17.6033 |              26.5533 |              21.6201 |              18.9367 |              22.4767 |              21.7567 |
+| Rb     | f     | Ctrl     | young | E. carotovora carotovora 15 |       18 | a                 |            18.5633 |              26.59   |              22.2171 |              16.4633 |              17.6567 |              15.7433 |
+| 2La    | f     | Sel      | young | Prick control               |        9 | a                 |            17.9133 |              26.605  |              21.8308 |              19.42   |              25.435  |              23.335  |
+| Lb     | f     | Sel      | old   | uninfected                  |       26 | b                 |            18.2367 |              28.4833 |              22.7912 |              21.4    |              24.505  |              26.95   |
+| La     | f     | Sel      | old   | uninfected                  |       25 | b                 |            19.29   |              27.37   |              22.9775 |              21.38   |              25.23   |              24.23   |
+| Lb     | f     | Sel      | young | uninfected                  |        2 | a                 |            18.3467 |              28.4767 |              22.8572 |              21.4367 |              27.8533 |              29.31   |
+| Lb     | f     | Sel      | old   | E. carotovora carotovora 15 |       38 | a                 |            18.53   |              26.8733 |              22.3151 |              17.5267 |              18.41   |              16.86   |
+
+====================================================================================================
+
+Meta-Llama-3-70B-Instruct OUTPUT:
+
+{'Line': {'description': 'Unique identifier of the Drosophila melanogaster line.',
+          'data_type': 'string'},
+ 'Sex': {'description': 'Sex of the Drosophila melanogaster.', 'data_type': 'string'},
+ 'Regime': {'description': 'Type of selection regime (Sel or Ctrl) applied to the Drosophila '
+                           'melanogaster line.',
+            'data_type': 'string'},
+ 'Age': {'description': 'Age category of the Drosophila melanogaster (old or young).',
+         'data_type': 'string'},
+ 'Treatment': {'description': 'Environmental condition or experimental group the moths were '
+                              'subjected to.',
+               'data_type': 'string'},
+ 'Sample': {'description': 'Sample number or identifier.', 'data_type': 'integer'},
+ 'Biol. replicate': {'description': 'Biological replicate identifier.', 'data_type': 'string'},
+ 'Ct Tech. Rep. Avg': {'description': 'Average Ct value for technical replicate.',
+                       'data_type': 'float'},
+ 'Ct Tech. Rep. Avg.1': {'description': 'Average Ct value for technical replicate 1.',
+                         'data_type': 'float'},
+ 'Ct Tech. Rep. Avg.2': {'description': 'Average Ct value for technical replicate 2.',
+                         'data_type': 'float'},
+ 'Ct Tech. Rep. Avg.3': {'description': 'Average Ct value for technical replicate 3.',
+                         'data_type': 'float'},
+ 'Ct Tech. Rep. Avg.4': {'description': 'Average Ct value for technical replicate 4.',
+                         'data_type': 'float'},
+ 'Ct Tech. Rep. Avg.5': {'description': 'Average Ct value for technical replicate 5.',
+                         'data_type': 'float'}}
+
+====================================================================================================
+
+OpenBioLLM-Llama3-70B OUTPUT:
+
+{'Line': {'description': 'The unique identifier of the Drosophila melanogaster lines used in the '
+                         'study.',
+          'data_type': 'string'},
+ 'Sex': {'description': 'The sex of the Drosophila melanogaster lines.', 'data_type': 'string'},
+ 'Regime': {'description': 'The selection regime under which the Drosophila melanogaster lines '
+                           'were maintained.',
+            'data_type': 'string'},
+ 'Age': {'description': 'The age group of the Drosophila melanogaster lines.',
+         'data_type': 'string'},
+ 'Treatment': {'description': 'The environmental condition or experimental group the moths were '
+                              'subjected to.',
+               'data_type': 'string'},
+ 'Sample': {'description': 'The sample number or identifier for each experiment.',
+            'data_type': 'integer'},
+ 'Biol. replicate': {'description': 'The biological replicate number for each experiment.',
+                     'data_type': 'string'},
+ 'Ct Tech. Rep. Avg': {'description': 'The average technical replicate for Ct (cycle threshold) in '
+                                      'the experiment.',
+                       'data_type': 'float'},
+ 'Ct Tech. Rep. Avg.1': {'description': 'The average technical replicate for Ct (cycle threshold) '
+                                        'in the experiment.',
+                         'data_type': 'float'},
+ 'Ct Tech. Rep. Avg.2': {'description': 'The average technical replicate for Ct (cycle threshold) '
+                                        'in the experiment.',
+                         'data_type': 'float'},
+ 'Ct Tech. Rep. Avg.3': {'description': 'The average technical replicate for Ct (cycle threshold) '
+                                        'in the experiment.',
+                         'data_type': 'float'},
+ 'Ct Tech. Rep. Avg.4': {'description': 'The average technical replicate for Ct (cycle threshold) '
+                                        'in the experiment.',
+                         'data_type': 'float'},
+ 'Ct Tech. Rep. Avg.5': {'description': 'The average technical replicate for Ct (cycle threshold) '
+                                        'in the experiment.',
+                         'data_type': 'float'}}
+
+====================================================================================================
+
+GPT4 OUTPUT:
+
+{'Line': {'description': 'The specific strain or variant of the Drosophila melanogaster used in '
+                         'the experiment.',
+          'data_type': 'string'},
+ 'Sex': {'description': 'The gender of the Drosophila melanogaster used in the experiment.',
+         'data_type': 'binary'},
+ 'Regime': {'description': 'The specific experimental condition or group the Drosophila '
+                           'melanogaster were subjected to.',
+            'data_type': 'string'},
+ 'Age': {'description': 'The age group of the Drosophila melanogaster used in the experiment, '
+                        "categorized as 'young' or 'old'.",
+         'data_type': 'binary'},
+ 'Treatment': {'description': 'The specific environmental condition or experimental treatment the '
+                              'Drosophila melanogaster were subjected to.',
+               'data_type': 'string'},
+ 'Sample': {'description': 'The unique numerical identifier of the sample used in the experiment.',
+            'data_type': 'integer'},
+ 'Biol. replicate': {'description': 'The biological replicate group the sample belongs to, used to '
+                                    "ensure the experiment's results are reproducible.",
+                     'data_type': 'string'},
+ 'Ct Tech.Rep. Avg': {'description': 'The average of technical replicates for a specific gene '
+                                     'expression measurement, used in quantitative PCR '
+                                     'experiments.',
+                      'data_type': 'float'},
+ 'Ct Tech.Rep. Avg.1': {'description': 'The average of technical replicates for a second specific '
+                                       'gene expression measurement, used in quantitative PCR '
+                                       'experiments.',
+                        'data_type': 'float'},
+ 'Ct Tech.Rep. Avg.2': {'description': 'The average of technical replicates for a third specific '
+                                       'gene expression measurement, used in quantitative PCR '
+                                       'experiments.',
+                        'data_type': 'float'},
+ 'Ct Tech.Rep. Avg.3': {'description': 'The average of technical replicates for a fourth specific '
+                                       'gene expression measurement, used in quantitative PCR '
+                                       'experiments.',
+                        'data_type': 'float'},
+ 'Ct Tech.Rep. Avg.4': {'description': 'The average of technical replicates for a fifth specific '
+                                       'gene expression measurement, used in quantitative PCR '
+                                       'experiments.',
+                        'data_type': 'float'},
+ 'Ct Tech.Rep. Avg.5': {'description': 'The average of technical replicates for a sixth specific '
+                                       'gene expression measurement, used in quantitative PCR '
+                                       'experiments.',
+                        'data_type': 'float'}}
